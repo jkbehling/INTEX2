@@ -1,4 +1,5 @@
 ﻿@page "/admin/crashes/edit/{id:long}"
+@page "/admin/crashes/create" 
 
 @inherits OwningComponentBase<ICrashRepository>
 
@@ -77,191 +78,458 @@
     <div class="form-group">
         <label>Work Zone Related: </label>
         <ValidationMessage For="@(() => c.WORK_ZONE_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.WORK_ZONE_RELATED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.WORK_ZONE_RELATED"></InputText>
+        <InputSelect @bind-Value="c.WORK_ZONE_RELATED">
+            @if (c.WORK_ZONE_RELATED == "FALSE")
+            {
+                <option selected value="@c.WORK_ZONE_RELATED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.WORK_ZONE_RELATED == "TRUE")
+            {
+                <option selected value="@c.WORK_ZONE_RELATED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.WORK_ZONE_RELATED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
+
 
     <div class="form-group">
         <label>Pedestrian Involved: </label>
         <ValidationMessage For="@(() => c.PEDESTRIAN_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.PEDESTRIAN_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.PEDESTRIAN_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.PEDESTRIAN_INVOLVED">
+            @if (c.PEDESTRIAN_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.PEDESTRIAN_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.PEDESTRIAN_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.PEDESTRIAN_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.PEDESTRIAN_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Bicyclist Involved: </label>
         <ValidationMessage For="@(() => c.BICYCLIST_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.BICYCLIST_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.BICYCLIST_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.BICYCLIST_INVOLVED">
+            @if (c.BICYCLIST_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.BICYCLIST_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.BICYCLIST_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.BICYCLIST_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.BICYCLIST_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Motorcycle Involved: </label>
         <ValidationMessage For="@(() => c.MOTORCYCLE_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.MOTORCYCLE_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.MOTORCYCLE_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.MOTORCYCLE_INVOLVED">
+            @if (c.MOTORCYCLE_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.MOTORCYCLE_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.MOTORCYCLE_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.MOTORCYCLE_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.MOTORCYCLE_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Improper Restraint: </label>
         <ValidationMessage For="@(() => c.IMPROPER_RESTRAINT)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.IMPROPER_RESTRAINT"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.IMPROPER_RESTRAINT"></InputText>
+        <InputSelect @bind-Value="c.IMPROPER_RESTRAINT">
+            @if (c.IMPROPER_RESTRAINT == "FALSE")
+            {
+                <option selected value="@c.IMPROPER_RESTRAINT"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.IMPROPER_RESTRAINT == "TRUE")
+            {
+                <option selected value="@c.IMPROPER_RESTRAINT"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.IMPROPER_RESTRAINT"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Unrestrained: </label>
         <ValidationMessage For="@(() => c.UNRESTRAINED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.UNRESTRAINED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.UNRESTRAINED"></InputText>
+        <InputSelect @bind-Value="c.UNRESTRAINED">
+            @if (c.UNRESTRAINED == "FALSE")
+            {
+                <option selected value="@c.UNRESTRAINED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.UNRESTRAINED == "TRUE")
+            {
+                <option selected value="@c.UNRESTRAINED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.UNRESTRAINED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>DUI: </label>
         <ValidationMessage For="@(() => c.DUI)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.DUI"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.DUI"></InputText>
+        <InputSelect @bind-Value="c.DUI">
+            @if (c.DUI == "FALSE")
+            {
+                <option selected value="@c.DUI"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.DUI == "TRUE")
+            {
+                <option selected value="@c.DUI"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.DUI"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Intersection Related: </label>
         <ValidationMessage For="@(() => c.INTERSECTION_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.INTERSECTION_RELATED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.INTERSECTION_RELATED"></InputText>
+        <InputSelect @bind-Value="c.INTERSECTION_RELATED">
+            @if (c.INTERSECTION_RELATED == "FALSE")
+            {
+                <option selected value="@c.INTERSECTION_RELATED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.INTERSECTION_RELATED == "TRUE")
+            {
+                <option selected value="@c.INTERSECTION_RELATED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.INTERSECTION_RELATED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Wild Animal Related: </label>
         <ValidationMessage For="@(() => c.WILD_ANIMAL_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.WILD_ANIMAL_RELATED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.WILD_ANIMAL_RELATED"></InputText>
+        <InputSelect @bind-Value="c.WILD_ANIMAL_RELATED">
+            @if (c.WILD_ANIMAL_RELATED == "FALSE")
+            {
+                <option selected value="@c.WILD_ANIMAL_RELATED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.WILD_ANIMAL_RELATED == "TRUE")
+            {
+                <option selected value="@c.WILD_ANIMAL_RELATED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.WILD_ANIMAL_RELATED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Domestic Animal Related: </label>
         <ValidationMessage For="@(() => c.DOMESTIC_ANIMAL_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.DOMESTIC_ANIMAL_RELATED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.DOMESTIC_ANIMAL_RELATED"></InputText>
+        <InputSelect @bind-Value="c.DOMESTIC_ANIMAL_RELATED">
+            @if (c.DOMESTIC_ANIMAL_RELATED == "FALSE")
+            {
+                <option selected value="@c.DOMESTIC_ANIMAL_RELATED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.DOMESTIC_ANIMAL_RELATED == "TRUE")
+            {
+                <option selected value="@c.DOMESTIC_ANIMAL_RELATED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.DOMESTIC_ANIMAL_RELATED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Overturn Rollover: </label>
         <ValidationMessage For="@(() => c.OVERTURN_ROLLOVER)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.OVERTURN_ROLLOVER"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.OVERTURN_ROLLOVER"></InputText>
+        <InputSelect @bind-Value="c.OVERTURN_ROLLOVER">
+            @if (c.OVERTURN_ROLLOVER == "FALSE")
+            {
+                <option selected value="@c.OVERTURN_ROLLOVER"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.OVERTURN_ROLLOVER == "TRUE")
+            {
+                <option selected value="@c.OVERTURN_ROLLOVER"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.OVERTURN_ROLLOVER"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Commercial Motor Vehicle Involved: </label>
         <ValidationMessage For="@(() => c.COMMERCIAL_MOTOR_VEH_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.COMMERCIAL_MOTOR_VEH_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.COMMERCIAL_MOTOR_VEH_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.COMMERCIAL_MOTOR_VEH_INVOLVED">
+            @if (c.COMMERCIAL_MOTOR_VEH_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.COMMERCIAL_MOTOR_VEH_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.COMMERCIAL_MOTOR_VEH_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.COMMERCIAL_MOTOR_VEH_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.COMMERCIAL_MOTOR_VEH_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Teenage Driver Involved: </label>
         <ValidationMessage For="@(() => c.TEENAGE_DRIVER_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.TEENAGE_DRIVER_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.TEENAGE_DRIVER_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.TEENAGE_DRIVER_INVOLVED">
+            @if (c.TEENAGE_DRIVER_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.TEENAGE_DRIVER_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.TEENAGE_DRIVER_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.TEENAGE_DRIVER_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.TEENAGE_DRIVER_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Older Driver Involved: </label>
         <ValidationMessage For="@(() => c.OLDER_DRIVER_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.OLDER_DRIVER_INVOLVED"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.OLDER_DRIVER_INVOLVED"></InputText>
+        <InputSelect @bind-Value="c.OLDER_DRIVER_INVOLVED">
+            @if (c.OLDER_DRIVER_INVOLVED == "FALSE")
+            {
+                <option selected value="@c.OLDER_DRIVER_INVOLVED"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.OLDER_DRIVER_INVOLVED == "TRUE")
+            {
+                <option selected value="@c.OLDER_DRIVER_INVOLVED"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.OLDER_DRIVER_INVOLVED"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Night/Dark Condition: </label>
         <ValidationMessage For="@(() => c.NIGHT_DARK_CONDITION)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.NIGHT_DARK_CONDITION"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.NIGHT_DARK_CONDITION"></InputText>
+        <InputSelect @bind-Value="c.NIGHT_DARK_CONDITION">
+            @if (c.NIGHT_DARK_CONDITION == "FALSE")
+            {
+                <option selected value="@c.NIGHT_DARK_CONDITION"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.NIGHT_DARK_CONDITION == "TRUE")
+            {
+                <option selected value="@c.NIGHT_DARK_CONDITION"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.NIGHT_DARK_CONDITION"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Single Vehicle: </label>
         <ValidationMessage For="@(() => c.SINGLE_VEHICLE)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.SINGLE_VEHICLE"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.SINGLE_VEHICLE"></InputText>
+        <InputSelect @bind-Value="c.SINGLE_VEHICLE">
+            @if (c.SINGLE_VEHICLE == "FALSE")
+            {
+                <option selected value="@c.SINGLE_VEHICLE"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.SINGLE_VEHICLE == "TRUE")
+            {
+                <option selected value="@c.SINGLE_VEHICLE"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.SINGLE_VEHICLE"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Distracted Driving: </label>
         <ValidationMessage For="@(() => c.DISTRACTED_DRIVING)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.DISTRACTED_DRIVING"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.DISTRACTED_DRIVING"></InputText>
+        <InputSelect @bind-Value="c.DISTRACTED_DRIVING">
+            @if (c.DISTRACTED_DRIVING == "FALSE")
+            {
+                <option selected value="@c.DISTRACTED_DRIVING"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.DISTRACTED_DRIVING == "TRUE")
+            {
+                <option selected value="@c.DISTRACTED_DRIVING"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.DISTRACTED_DRIVING"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Drowsy Driving: </label>
         <ValidationMessage For="@(() => c.DROWSY_DRIVING)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.DROWSY_DRIVING"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.DROWSY_DRIVING"></InputText>
+        <InputSelect @bind-Value="c.DROWSY_DRIVING">
+            @if (c.DROWSY_DRIVING == "FALSE")
+            {
+                <option selected value="@c.DROWSY_DRIVING"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.DROWSY_DRIVING == "TRUE")
+            {
+                <option selected value="@c.DROWSY_DRIVING"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.DROWSY_DRIVING"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <div class="form-group">
         <label>Roadway Departure: </label>
         <ValidationMessage For="@(() => c.ROADWAY_DEPARTURE)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="c.ROADWAY_DEPARTURE"></InputText>
-        <select>
-            <option value="True">True</option>
-            <option value="False">False</option>
-        </select>
+        <InputText class="form-control w-25" @bind-Value="c.ROADWAY_DEPARTURE"></InputText>
+        <InputSelect @bind-Value="c.ROADWAY_DEPARTURE">
+            @if (c.ROADWAY_DEPARTURE == "FALSE")
+            {
+                <option selected value="@c.ROADWAY_DEPARTURE"></option>
+                <option value="TRUE">True</option>
+            }
+            else if (c.ROADWAY_DEPARTURE == "TRUE")
+            {
+                <option selected value="@c.ROADWAY_DEPARTURE"></option>
+                <option value="FALSE">False</option>
+            }
+            else
+            {
+                <option selected value="@c.ROADWAY_DEPARTURE"></option>
+                <option value="TRUE">True</option>
+                <option value="FALSE">False</option>
+            }
+        </InputSelect>
     </div>
 
     <button type="submit" class="btn btn-@ThemeColor">Save</button>

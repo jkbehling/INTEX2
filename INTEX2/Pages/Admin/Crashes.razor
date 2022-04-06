@@ -3,6 +3,7 @@
 @page "/admin/{id:long}"
 @inherits OwningComponentBase<ICrashRepository>
 <!--Crashes table-->
+
 <table class="table table-sm table-bordered table-hover">
 
     <thead>
@@ -15,7 +16,6 @@
     </thead>
 
     <tbody>
-
 
         @if (crashdata?.Count() > 0)
         {
@@ -74,7 +74,6 @@
     [Parameter]
     public long Id { get; set; }
 
-
     protected async override Task OnInitializedAsync()
     {
         await UpdateData();
@@ -82,12 +81,10 @@
 
     public async Task UpdateData(int pageNum = 1)
     {
-        
-        var testNum = 20 * pageNum;
+
+        var testNum = 50 * pageNum;
         crashdata = await repo.crashdata.Take(testNum).ToListAsync();
     }
-
-  
 
     public string GetDetailsUrl(long id) => $"/admin/crashes/details/{id}";
     public string GetEditUrl(long id) => $"/admin/crashes/edit/{id}";
@@ -97,6 +94,5 @@
         repo.DeleteCrash(c);
         await UpdateData();
     }
-
 
 }

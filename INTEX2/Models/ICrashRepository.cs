@@ -14,5 +14,6 @@ namespace INTEX2.Models
         public void CreateCrash(Crash c);
         public void UpdateCrash(Crash c);
         public void DeleteCrash(Crash c);
+
     }
 }
