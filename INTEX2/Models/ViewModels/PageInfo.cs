@@ -14,8 +14,10 @@ namespace INTEX2.Models.ViewModels
         public string CountyFilter { get; set; }
         public string RouteFilter { get; set; }
         public string CityFilter { get; set; }
+        public int MonthFilter { get; set; }
+        public string YearFilter { get; set; }
         public string WorkZoneFilter { get; set; }
-        public string MilePointFilter { get; set; }
+        public float MilePointFilter { get; set; }
         public string RoadFilter { get; set; }
         public float LatitudeFilter { get; set; }
         public float LongitudeFilter { get; set; }

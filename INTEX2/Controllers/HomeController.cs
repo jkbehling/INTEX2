@@ -30,25 +30,27 @@ namespace INTEX2.Controllers
             return View();
         }
 
-        public IActionResult Summary(int pageNum  =  1, int severity  =  0, string county  =  null, string theRoute  =  null, string city  =  null, string workzone  =  null, string milepoint  =  null,
+        public IActionResult Summary(int pageNum  =  1, int severity  =  0, string county  =  null, string theRoute  =  null, string city  =  null, int month=0, string year=null, string workzone  =  null, float milepoint=0,
             string road  =  null, float latitude  =  0, float longitude  =  0, string pedestrian  =  null, string bicyclist  =  null, string motorcycle  =  null,
             string improperrestraint  =  null, string unrestrained  =  null, string dui  =  null, string intersection  =  null, string wildanimal  =  null, string domesticanimal  =  null, string rollover  =  null,
             string commercial  =  null, string teenager  =  null, string older  =  null, string night  =  null, string single  =  null, string distracted  =  null, string departure  =  null, string drowsy  =  null)
         {
-            float changedMilepoint = 0;
-            if(milepoint != null) { changedMilepoint = float.Parse(milepoint); }
+            
             
             int pageSize = 20;
             ViewBag.Counties = repo.crashdata.Select(x => x.COUNTY_NAME).Distinct();
             ViewBag.Severity = repo.crashdata.Select(x => x.CRASH_SEVERITY_ID).Distinct();
+            ViewBag.Years = repo.crashdata.Select(x => x.CRASH_YEAR).Distinct();
 
             var currentCrashes = repo.crashdata
                 .Where(x => x.CRASH_SEVERITY_ID == severity || severity == 0)
                 .Where(x => x.COUNTY_NAME == county || county == null)
                 .Where(x => x.ROUTE == theRoute || theRoute == null)
                 .Where(x => x.CITY == city || city == null)
+                .Where(x => x.CRASH_MONTH == month || month == 0)
+                .Where(x => x.CRASH_YEAR == year || year == null)
                 .Where(x => x.WORK_ZONE_RELATED == workzone || workzone == null)
-                .Where(x => x.MILEPOINT == changedMilepoint || milepoint == null)
+                .Where(x => x.MILEPOINT == milepoint || milepoint == 0)
                 .Where(x => x.MAIN_ROAD_NAME == road || road == null)
                 .Where(x => x.LAT_UTM_Y == latitude || latitude == 0)
                 .Where(x => x.LONG_UTM_X == longitude || longitude == 0)
@@ -86,6 +88,8 @@ namespace INTEX2.Controllers
                     CountyFilter = county,
                     RouteFilter = theRoute,
                     CityFilter = city,
+                    MonthFilter = month,
+                    YearFilter = year,
                     WorkZoneFilter = workzone,
                     MilePointFilter = milepoint,
                     RoadFilter = road,

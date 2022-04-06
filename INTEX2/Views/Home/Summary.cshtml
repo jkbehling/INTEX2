@@ -63,9 +63,38 @@
 
             <hr />
 
-            @*<div>Date and Time:
-            <input asp-for="datetime" /> <br />
-        </div>*@
+            <div>
+                Month:
+                <select asp-for="month">
+
+                    <option value="1">January</option>
+                    <option value="2">Februrary</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+
+                </select>
+            </div>
+
+            <div>
+                Year:
+                <select asp-for="year">
+                    <option value="">No Selection</option>
+                    @foreach (var x in ViewBag.Years)
+                    {
+                        <option value="@x">@x</option>
+                    }
+
+                </select>
+            
+            </div>
 
             <hr />
 
@@ -256,7 +285,7 @@
                 {
                     <tr>
                         <td>@x.CRASH_ID</td>
-                        <td>@x.CRASH_DATETIME</td>
+                        <td>@x.CRASH_DAY/@x.CRASH_MONTH/@x.CRASH_YEAR</td>
                         <td>@x.ROUTE</td>
                         <td>@x.MILEPOINT</td>
                         <td>@x.MAIN_ROAD_NAME</td>

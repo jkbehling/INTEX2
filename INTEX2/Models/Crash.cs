@@ -37,6 +37,13 @@ namespace INTEX2.Models
         public string DISTRACTED_DRIVING { get; set; }
         public string DROWSY_DRIVING { get; set; }
         public string ROADWAY_DEPARTURE { get; set; }
+        public string CRASH_TIME { get; set; }
+        public string CRASH_DAY { get; set; }
+        public string CRASH_DAYOFWEEK { get; set; }
+        public string CRASH_YEAR { get; set; }
+        public int CRASH_MONTH { get; set; }
+
+        
 
     }
 }

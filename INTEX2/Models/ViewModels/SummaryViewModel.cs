@@ -15,6 +15,8 @@ namespace INTEX2.Models.ViewModels
         public int crashid { get; set; }
         public string theRoute { get; set; }
         public string city { get; set; }
+        public int month { get; set; }
+        public string year { get; set; }
         public string workzone { get; set; }
         public float milepoint { get; set; }
         public string road { get; set; }

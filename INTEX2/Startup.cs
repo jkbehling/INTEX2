@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -29,6 +30,11 @@ namespace INTEX2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // used for .onnx file
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("crash_model (1).onnx")
+);
 
             // add connection to mysql here
             services.AddDbContext<CrashDbContext>(options =>
