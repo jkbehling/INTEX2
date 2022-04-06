@@ -1,0 +1,291 @@
+﻿@{
+    ViewData["Title"] = "Crash Details";
+}
+@model SummaryViewModel
+
+<div class="row m-1 p-1">
+
+    <div id="counties" class="col-3" style="background-color:aliceblue">
+
+        <p>Filter by Crash ID Number:</p>
+        <br />
+
+        <form method="get">
+            <input asp-for="crashid" />
+            <button type="submit" asp-action="SummaryCrashId" class="btn btn-success mt-3 w-100">Search</button>
+        </form>
+
+        <hr style="height:2px"/>
+
+        <p>Filter by Other Parameters:</p>
+
+        <form method="get">
+
+            <button type="submit" asp-action="Summary" class="btn btn-success mt-2 mb-2 w-100">Filter</button>
+
+            <div>
+                Severity:
+                <select asp-for="severity">
+                    <option selected disabled>Choose Severity Level</option>
+                    @foreach (var x in ViewBag.Severity)
+                    {
+                        <option value="@x">@x</option>
+                    }
+                </select>
+            </div>
+
+            <hr />
+
+            <div>
+                County:
+                <select asp-for="county">
+                    <option selected disabled>Choose County</option>
+                    @foreach (var x in ViewBag.Counties)
+                    {
+                        <option value="@x">@x</option>
+                    }
+                </select>
+            </div>
+
+            <hr />
+
+            <div>
+                Route:
+                <input asp-for="theRoute" />
+            </div>
+
+            <hr />
+
+            <div>
+                City:
+                <input asp-for="city" autocapitalize="word"/>
+            </div>
+
+            <hr />
+
+            @*<div>Date and Time:
+            <input asp-for="datetime" /> <br />
+        </div>*@
+
+            <hr />
+
+            <div>
+                Mile Point:
+                <input asp-for="milepoint" /> <br />
+            </div>
+
+            <hr />
+
+            <div>
+                Road:
+                <input asp-for="road" autocapitalize="word"/> <br />
+            </div>
+
+            <hr />
+
+            <div>
+                Latitude:
+                <input asp-for="latitude" /> <br />
+            </div>
+
+            <hr />
+
+            <div>
+                Longitude:
+                <input asp-for="longitude" /> <br />
+            </div>
+
+            <hr />
+
+            <div>
+                Workzone Related?<br />
+                <label><input type="radio" asp-for="workzone" value=""> No Selection </label>
+                <label><input type="radio" asp-for="workzone" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="workzone" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Pedestrian Involved?<br />
+                <label><input type="radio" asp-for="pedestrian" value=""> No Selection </label>
+                <label><input type="radio" asp-for="pedestrian" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="pedestrian" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Bicyclist Involved?<br />
+                <label><input type="radio" asp-for="bicyclist" value=""> No Selection </label>
+                <label><input type="radio" asp-for="bicyclist" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="bicyclist" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Motorcycle Involved?<br />
+                <label><input type="radio" asp-for="motorcycle" value=""> No Selection </label>
+                <label><input type="radio" asp-for="motorcycle" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="motorcycle" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Improper Restraint?<br />
+                <label><input type="radio" asp-for="improperrestraint" value=""> No Selection </label>
+                <label><input type="radio" asp-for="improperrestraint" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="improperrestraint" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Restrained?<br />
+                <label><input type="radio" asp-for="unrestrained" value=""> No Selection </label>
+                <label><input type="radio" asp-for="unrestrained" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="unrestrained" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                DUI?<br />
+                <label><input type="radio" asp-for="dui" value=""> No Selection </label>
+                <label><input type="radio" asp-for="dui" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="dui" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                At Intersection?<br />
+                <label><input type="radio" asp-for="intersection" value=""> No Selection </label>
+                <label><input type="radio" asp-for="intersection" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="intersection" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Wild Animal Involved?<br />
+                <label><input type="radio" asp-for="wildanimal" value=""> No Selection </label>
+                <label><input type="radio" asp-for="wildanimal" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="wildanimal" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Domestic Animal Involved?<br />
+                <label><input type="radio" asp-for="domesticanimal" value=""> No Selection </label>
+                <label><input type="radio" asp-for="domesticanimal" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="domesticanimal" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Rollover?<br />
+                <label><input type="radio" asp-for="rollover" value=""> No Selection </label>
+                <label><input type="radio" asp-for="rollover" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="rollover" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Commercial Vehicle Involved?<br />
+                <label><input type="radio" asp-for="commercial" value=""> No Selection </label>
+                <label><input type="radio" asp-for="commercial" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="commercial" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Teenager Involved?<br />
+                <label><input type="radio" asp-for="teenager" value=""> No Selection </label>
+                <label><input type="radio" asp-for="teenager" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="teenager" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Older Person Involved?<br />
+                <label><input type="radio" asp-for="older" value=""> No Selection </label>
+                <label><input type="radio" asp-for="older" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="older" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                At Night?<br />
+                <label><input type="radio" asp-for="night" value=""> No Selection </label>
+                <label><input type="radio" asp-for="night" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="night" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Single Driver?<br />
+                <label><input type="radio" asp-for="single" value=""> No Selection </label>
+                <label><input type="radio" asp-for="single" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="single" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Distracted Driving?<br />
+                <label><input type="radio" asp-for="distracted" value=""> No Selection </label>
+                <label><input type="radio" asp-for="distracted" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="distracted" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Drowsy Driving?<br />
+                <label><input type="radio" asp-for="drowsy" value=""> No Selection </label>
+                <label><input type="radio" asp-for="drowsy" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="drowsy" value="FALSE"> No </label>
+            </div><hr />
+
+            <div>
+                Roadway Departure?<br />
+                <label><input type="radio" asp-for="departure" value=""> No Selection </label>
+                <label><input type="radio" asp-for="departure" value="TRUE"> Yes </label>
+                <label><input type="radio" asp-for="departure" value="FALSE"> No </label>
+            </div><hr />
+
+            <button type="submit" asp-action="Summary" class="btn btn-success mb-2 w-100">Filter</button>
+
+        </form>
+    </div>
+
+    <div class="text-center col-9">
+        <h1 class="display-4">Utah Collision Incidents</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Crash ID</th>
+                    <th>Date</th>
+                    <th>Route</th>
+                    <th>Milepoint</th>
+                    <th>Main Road Name</th>
+                    <th>City</th>
+                    <th>County</th>
+                    <th>Crash Severity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model.Crashes)
+                {
+                    <tr>
+                        <td>@x.CRASH_ID</td>
+                        <td>@x.CRASH_DATETIME</td>
+                        <td>@x.ROUTE</td>
+                        <td>@x.MILEPOINT</td>
+                        <td>@x.MAIN_ROAD_NAME</td>
+                        <td>@x.CITY</td>
+                        <td>@x.COUNTY_NAME</td>
+                        <td>@x.CRASH_SEVERITY_ID</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+        <div class="row">
+            <div class="col text-right">
+                <div page-yeah="@Model.PageInfo" page-action="Summary" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
+
+            </div>
+
+           
+            
+            <div class="col text-left">
+                <form method="get">
+
+                    <input asp-for="pageNum" class="form-control w-25" />
+                    <button type="submit" asp-action="Summary" class="btn"></button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

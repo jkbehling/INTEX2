@@ -1,0 +1,31 @@
+﻿@page "/admin"
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+@model INTEX2.Pages.Admin.IndexModel
+
+@{
+}
+
+<!--Shared Layout for Razor Pages-->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Crashes Admin</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <base href="/" />
+</head>
+
+<body>
+
+    <component type="typeof(INTEX2.Pages.Admin.Routed)" render-mode="Server" />
+    <script src="/_framework/blazor.server.js"></script>
+
+</body>
+
+</html>
+
+
