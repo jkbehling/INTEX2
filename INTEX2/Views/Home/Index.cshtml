@@ -4,52 +4,68 @@
 @model List<Crash>
 
 
-    
-        <div class="text-center mt-3">
-            <div class="card">
-                <div class="card-header">
+<!--Home Page-->
 
-                </div>
-                <div class="card-body">
-                    <img class="w-50" src="~/intexindeximage.jpg" />
-                </div>
 
-            </div>
+<!--Background image for the home page-->
+<div class="bg-image"
+     style="background-image: url('https://robertdebry.com/wp-content/uploads/2016/03/Highway.jpg'); height: 550px ">
+</div>
+<div class="card">
+    <h1 class="typography-line text-center mt-2" style="font-weight: 900;">Utah Crash Data</h1>
+</div>
+
+<div class="row">
+
+    <!--Purpose and Image cards-->
+    <div class="col card">
+        <div class="card-header">
+            <h4 class="card-title text-center">Our Purpose</h4>
         </div>
-   
+        <div class="card-body">
+            <p>
+                Over the past few years Utah has faced unique challenges with motor vehicle accidents. DUI's in Utah continue to be an issue, however it may not be as prevelant as an issue as it is in other states.
+                Lawmakers continue to find ways to reduce car accidents. This site provides access to important data for lawmakers and residents who are concerned about these issues.
+            </p>
+            <p>
+                The purpose of this site is to educate Utahns about the accidents that are happening on our roads. Specific and filterable data can be found on our crash details page.
+                This allows residents to know where, how, and why these accidents are happending. With filtering capabilities, residents can access data about specific accidents, or view accidents of varying categories.
+            </p>
+            <p>
+                This website provides accurate and useful data about the motor vehicle accidents in the state of Utah. We know this data can better
+                educate our lawmakers in order to make decisions to improve the safety on our roads. We also know that drivers any age can use this data
+                to recognize the importance of safety while behind the wheel.
+            </p>
+        </div>
+    </div>
 
-  
+    <div class="col text-center">
         <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Utah Car Crashes</h5>
-            </div>
+
             <div class="card-body">
-                <p>
-                    Throughout the state of Utah, there is a seriously problem with the amount of motor vehicle collisions. Distracted driving continues to cause deaths
-                    and tear apart families across the state. Lawmakers are making many efforts to find ways to fix this problem. They are seeking outside help, collecting
-                    data, and even targeting social trends with funny signs on the freeways like the one above.
-                </p>
-                <p>
-                    The purpose of this site is to make Utahns aware of what is going on. On the crash details page, there are data to show the many lives affected in the
-                    last few years by distracted or reckless driving. With filter capabilities, you can find specific accidents, or view accidents of varying categories.
-                </p>
-                <p>
-                    Lastly, the mission of this website is to show summaries and predictions with the purpose of helping regulators make better decisions. We hope as you
-                    view this data, you too find it insightful.
-                </p>
+                <img class="w-100" src="~/intexindeximage.jpg" />
             </div>
+
         </div>
-    
+    </div>
+
+</div>
 
 
 
-      <div>
-          
 
-         
+<!--Links to View Crash Details, Predictor, and More Info-->
+<div class="row">
 
-          <div>
-              <a class="btn btn-primary" asp-controller="Home" asp-action="Summary">View Crash Details</a>
-          </div>
+    <div class="col card m-3">
+        <a class="btn btn-primary mr-5 ml-5" style="height: 50px; font-size: 150%;" asp-controller="Home" asp-action="Summary">View Crash Details</a>
+    </div>
+    <div class="col card m-3">
+        <a class="btn btn-primary mr-5 ml-5" style="height: 50px; font-size: 150%;" asp-controller="Inference" asp-action="EnterData">Predictor</a>
+    </div>
+    <div class="col card m-3">
+        <a class="btn btn-primary mr-5 ml-5" style="height: 50px; font-size: 150%;" asp-controller="Home" asp-action="MoreInfo">More Info</a>
+    </div>
 
-      </div>
+
+</div>

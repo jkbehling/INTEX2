@@ -1,14 +1,24 @@
 ﻿@{
+    ViewData["Title"] = "Prediction";
 }
 
 @model Prediction
 
+@* this is a page that will allow the user to see the predicted severity score after they have selected inputs *@
+
 <div class="card mt-2">
     <div class="card-header">
-        <h2 class="card-title">Predicted Severity (1-5):</h2>
+        @* display the score *@
+        <h3 class="bg-info text-white text-center p-1 rounded">Predicted Crash Severity Level (1-5):</h3>
     </div>
+    <hr />
     <div class="card-body">
-        <h1>@Model.PredictedValue</h1>
+        <h1 class="bg-danger text-white text-center p-1 rounded mr-5 ml-5">@Model.PredictedValue</h1>
+        <div class="text-center">
+            @* add a button that will take the user to a page on more info, so they can better understand what they're score means *@
+            <a style="font-size: 150%;" class="btn btn-primary align-content-center" asp-action="MoreInfo" asp-controller="Home">Click Here for More Info on the Crash Severity Level</a>
+        </div>
+        
     </div>
 </div>
 

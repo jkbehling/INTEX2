@@ -23,12 +23,10 @@
     <None Remove="Models\SessionUser" />
     <None Remove="Views\Account\NewFile.txt" />
     <None Remove="Views\Home\NewFile.txt" />
-    <None Remove="Views\Shared\Components\Filter\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\crash_model %281%29.onnx" />
-    <None Include="wwwroot\paper-dashboard-master\.github\workflows\main.yml" />
     <None Include="wwwroot\paper-dashboard-master\assets\css\bootstrap.min.css.map" />
     <None Include="wwwroot\paper-dashboard-master\assets\css\paper-dashboard.css.map" />
     <None Include="wwwroot\paper-dashboard-master\assets\demo\demo.js" />
@@ -77,11 +75,8 @@
     <None Include="wwwroot\paper-dashboard-master\assets\scss\paper-dashboard\_tables.scss" />
     <None Include="wwwroot\paper-dashboard-master\assets\scss\paper-dashboard\_typography.scss" />
     <None Include="wwwroot\paper-dashboard-master\assets\scss\paper-dashboard\_variables.scss" />
-    <None Include="wwwroot\paper-dashboard-master\CHANGELOG.md" />
     <None Include="wwwroot\paper-dashboard-master\gulpfile.js" />
-    <None Include="wwwroot\paper-dashboard-master\ISSUE_TEMPLATE.md" />
     <None Include="wwwroot\paper-dashboard-master\LICENSE" />
-    <None Include="wwwroot\paper-dashboard-master\README.md" />
   </ItemGroup>
 
   <ItemGroup>

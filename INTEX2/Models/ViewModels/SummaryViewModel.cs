@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models.ViewModels
 {
+    //Summary View model to bring in the categories for the Model 
     public class SummaryViewModel
     {
         public IQueryable<Crash> Crashes { get; set; }

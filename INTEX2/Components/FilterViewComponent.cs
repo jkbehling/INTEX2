@@ -11,6 +11,7 @@ namespace INTEX2.Components
     {
         private ICrashRepository repo { get; set; }
 
+        //This grabs crash data from the repository
         public FilterViewComponent(ICrashRepository temp)
         {
             repo = temp;

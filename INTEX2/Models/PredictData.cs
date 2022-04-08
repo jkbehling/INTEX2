@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace INTEX2.Models
 {
+    //Model to assist in the Prediction on EnterData.cshtml
     public class PredictData
     {
         [Required]
@@ -61,6 +62,7 @@ namespace INTEX2.Models
         public float roadway_departure_True { get; set; }
 
 
+        //Bring in float data from the .onnx model
         public Tensor<float> AsTensor()
         {
             float[] data = new float[]

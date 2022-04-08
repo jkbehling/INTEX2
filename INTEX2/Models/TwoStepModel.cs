@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Model for 2FA
 namespace INTEX2.Models
 {
     public class TwoStepModel

@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+@* this page sets the layout for the views. start by bringing in the packages that we will be using like bootstrap, css, etc. *@
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,35 +13,9 @@
     <link href="~/myStyles.css" rel="stylesheet" />
 </head>
 
+@* set navigation panels so that user can move throughout the website from any page *@
 
 <body style="min-height: 100%;">
-    @*<header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Utah Crash Information</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Summary">Crash Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Admin Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Inference" asp-action="EnterData">Predictor</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>*@
 
     <div class="">
         <div class="sidebar" data-color="white" data-active-color="danger">
@@ -63,19 +40,19 @@
                     <li>
                         <a asp-area="" asp-controller="Account" asp-action="Login">
                             Admin Login
-                            <i class="nc-icon nc-diamond"></i>
+                            <i class="nc-icon nc-single-02"></i>
                         </a>
                     </li>
                     <li>
                         <a asp-area="" asp-controller="Account" asp-action="Register">
-                            Register Admin Account
-                            <i class="nc-icon nc-diamond"></i>
+                            Admin Register
+                            <i class="nc-icon nc-badge"></i>
                         </a>
                     </li>
                     <li>
                         <a asp-area="" asp-controller="Inference" asp-action="EnterData">
                             Predictor
-                            <i class="nc-icon nc-pin-3"></i>
+                            <i class="nc-icon nc-chart-bar-32"></i>
                         </a>
 
                     </li>
@@ -83,7 +60,7 @@
 
                         <a asp-area="" asp-controller="Home" asp-action="MoreInfo">
                             More Info
-                            <i class="nc-icon nc-bell-55"></i>
+                            <i class="nc-icon nc-alert-circle-i"></i>
                         </a>
 
                     </li>
@@ -94,10 +71,12 @@
         </div>
     </div>
 
-    <div class="row" style="background-color: #FFF9F2;">
+    <div class="row" style="background-color: #e9e9e0;">
         <div class="col-2">
 
         </div>
+
+        @* here we bring in the cookie consent view, so that it pops up at the top of our pages for the user to accept or view the privacy policy *@
 
         <div class="col-10">
             <div class="row">
@@ -106,30 +85,14 @@
                 </div>
                 
             </div>
+
+            @* bring in the body for whichever page we are on *@
             
             @RenderBody()
 
 
-            @*<footer class="footer footer-black  footer-white ">
-            <div class="container-fluid">
-                <div class="row">
-                    <nav class="footer-nav">
-                        <ul>
-                            <li><a>&copy; 2022 - BYU Information Systems 2-4</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
-                        </ul>
-                    </nav>
-                    <div class="credits ml-auto">
-                        <span class="copyright">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </footer>*@
+     @* using this part as a footer since the bootstrap footer was lame and uncooperative *@
+
             <div class="border-top text-muted mt-5 Myfooter">
                 <div class="container">
                     &copy; 2022 - BYU Information Systems 2-4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -142,7 +105,7 @@
     </div>
 
 
-
+    @* specify packages and scripts *@
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace INTEX2.Models
 {
 
-    // Constructor
+    // Constructor - for Identity DB context file
     public class AppIdentityDBContext : IdentityDbContext<IdentityUser>
     {
         public AppIdentityDBContext(DbContextOptions options) : base(options)

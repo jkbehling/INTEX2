@@ -48,13 +48,22 @@ namespace INTEX2.Controllers
 
                 if (user != null)
                 {
-                    await signInManager.SignOutAsync();
-
-                    // Try logining in when password matches account password
-                    if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
+                    if (user.EmailConfirmed)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Home/Admin");
+                        await signInManager.SignOutAsync();
+
+                        // Try logining in when password matches account password
+                        if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
+                        {
+                            return Redirect(loginModel?.ReturnUrl ?? "/Home/Admin");
+                        }
                     }
+                    else
+                    {
+                        ModelState.AddModelError("", "This account has not been given admin privleges.");
+                        return View(loginModel);
+                    }
+                    
                 }
             }
 
@@ -64,6 +73,7 @@ namespace INTEX2.Controllers
 
         }
 
+        //This is stuff we didn't finish with two factor authentication
         //[HttpGet]
         //public async Task<IActionResult> LoginTwoStep(string email, bool rememberMe, string returnUrl = null)
         //{
@@ -101,6 +111,7 @@ namespace INTEX2.Controllers
             return View();
         }
 
+        //This will create a new admin user, but they will not receive admin privlidges unless we manually give them that permission
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -108,7 +119,6 @@ namespace INTEX2.Controllers
             {
                 var user = new IdentityUser (model.Email);
                 user.Email = model.Email;
-                user.PhoneNumber = "384-987-5468";
                  
                 var result = await userManager.CreateAsync(user, model.Password);
 

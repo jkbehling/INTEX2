@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 // Here we will set up info for a user account to seed the data
 
+
 namespace INTEX2.Models
 {
     public static class IdentitySeedData

@@ -17,6 +17,7 @@ namespace INTEX2.Controllers
 
     public class HomeController : Controller
     {
+        //Grab data from the crash repository
         private ICrashRepository repo;
 
         public HomeController(ICrashRepository temp)
@@ -34,18 +35,22 @@ namespace INTEX2.Controllers
             return View();
         }
 
+        //all of these parameters are used for filtering the data
         public IActionResult Summary(int pageNum = 1, int severity = 0, string county = null, string theRoute = null, string city = null, int month   =   0, string year   =   null, string workzone = null, float milepoint   =   0,
             string road = null, float latitude = 0, float longitude = 0, string pedestrian = null, string bicyclist = null, string motorcycle = null,
             string improperrestraint = null, string unrestrained = null, string dui = null, string intersection = null, string wildanimal = null, string domesticanimal = null, string rollover = null,
             string commercial = null, string teenager = null, string older = null, string night = null, string single = null, string distracted = null, string departure = null, string drowsy = null)
         {
 
-
+            // Set the page size here
             int pageSize = 40;
+
+            //These are used for the drop down lists.
             ViewBag.Counties = repo.crashdata.Select(x => x.COUNTY_NAME).Distinct();
             ViewBag.Severity = repo.crashdata.Select(x => x.CRASH_SEVERITY_ID).Distinct();
             ViewBag.Years = repo.crashdata.Select(x => x.CRASH_YEAR).Distinct();
 
+            //This will filter the data unless the data entered in is null or 0
             var currentCrashes = repo.crashdata
                 .Where(x => x.CRASH_SEVERITY_ID == severity || severity == 0)
                 .Where(x => x.COUNTY_NAME == county || county == null)
@@ -79,6 +84,7 @@ namespace INTEX2.Controllers
                 .OrderBy(x => x.CRASH_ID);
 
 
+            //This creates a new view model for the summary page
             var x = new SummaryViewModel
             {
                 Crashes = currentCrashes.Skip((pageNum - 1) * pageSize).Take(pageSize),
@@ -130,6 +136,7 @@ namespace INTEX2.Controllers
             return View(x);
         }
 
+        //This is for when the user searches by crashid on the summary page
         public IActionResult SummaryCrashId(int crashid, int pageNum = 1)
         {
             int pageSize = 50;
@@ -159,17 +166,20 @@ namespace INTEX2.Controllers
             return View("Summary", x);
         }
 
+        //For the crash severity predictor
         public IActionResult Predictor()
         {
             return View();
         }
 
+        //For details on a single record
         public IActionResult Details(int id)
         {
             var x = repo.crashdata.Single(x => x.CRASH_ID == id);
             return View(x);
         }
 
+        //This is the admin page where you can CRUD records
         [Authorize]
         public IActionResult Admin(LoginModel loginModel)
         {
@@ -184,6 +194,7 @@ namespace INTEX2.Controllers
             return View(y);
         }
 
+        //Details on a record for admin pages
         [Authorize]
         [HttpPost]
         public IActionResult AdminDetails(int crash_id)
@@ -207,11 +218,13 @@ namespace INTEX2.Controllers
             Crash crash = new Crash();
             return View(crash);
         }
+
         [HttpPost]
         public IActionResult AdminCreate(Crash c)
         {
             if (ModelState.IsValid)
             {
+                //Autoincriments the Crash_id
                 c.CRASH_ID = (repo.crashdata.Max(c => c.CRASH_ID))+1;
                 c.CRASH_DATETIME = c.CRASH_YEAR + "-" + c.CRASH_MONTH + "-" + c.CRASH_DAY + "T" + c.CRASH_TIME;
                 repo.CreateCrash(c);
@@ -245,6 +258,7 @@ namespace INTEX2.Controllers
             }
         }
 
+        //Admin stuff for deletion
         [HttpGet]
         public IActionResult AdminDelete()
         {

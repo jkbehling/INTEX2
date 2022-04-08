@@ -2,250 +2,266 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Admin Create";
 }
+
+<!--Bring in Identity and Crash Model-->
 
 @using Microsoft.AspNetCore.Identity
 @model Crash
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<h3>Add Crash Data</h3>
 
-<form method="post" asp-controller="Home" asp-action="Create">
-
-    <div asp-validation-summary="All"></div>
-
-    <input type="hidden" asp-for="@Model.CRASH_ID" />
-
-
-
-    <input type="hidden" value="t" class="form-control" asp-for="@Model.CRASH_DATETIME" />
-
-
-    <div class="form-group">
-        <label>Day (dd): </label>
-        <input class="form-control" asp-for="@Model.CRASH_DAY" />
+<!--Admin Page to Add/Create a Crash along with necessary forms that are needed to fill out-->
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="bg-info text-white text-center p-1 rounded">Add Crash Data</h3>
     </div>
+    <hr />
 
-    <div class="form-group">
-        <label>Month (mm): </label>
-        <input class="form-control" asp-for="@Model.CRASH_MONTH" />
+    <!--Beginning of Form-->
+
+    <div class="card-body">
+        <form method="post" asp-controller="Home" asp-action="Create">
+
+            <div asp-validation-summary="All"></div>
+
+            <input type="hidden" asp-for="@Model.CRASH_ID" />
+
+
+
+            <input type="hidden" value="t" class="form-control" asp-for="@Model.CRASH_DATETIME" />
+
+
+            <div class="form-group">
+                <label>Day (dd): </label>
+                <input class="form-control" asp-for="@Model.CRASH_DAY" />
+            </div>
+
+            <div class="form-group">
+                <label>Month (mm): </label>
+                <input class="form-control" asp-for="@Model.CRASH_MONTH" />
+            </div>
+
+            <div class="form-group">
+                <label>Year (YYYY): </label>
+                <input class="form-control" asp-for="@Model.CRASH_YEAR" />
+            </div>
+
+            <div class="form-group">
+                <label>Time (HH:mm): </label>
+                <input class="form-control" asp-for="@Model.CRASH_TIME" />
+            </div>
+
+
+            <div class="form-group">
+                <label>Route: </label>
+                <input class="form-control" asp-for="@Model.ROUTE" />
+            </div>
+
+            <div class="form-group">
+                <label>Milepoint: </label>
+                <input class="form-control" asp-for="@Model.MILEPOINT" />
+            </div>
+
+            <div class="form-group">
+                <label>Latitude: </label>
+                <input class="form-control" asp-for="@Model.LAT_UTM_Y" />
+            </div>
+
+            <div class="form-group">
+                <label>Longitude: </label>
+                <input class="form-control" asp-for="@Model.LONG_UTM_X" />
+            </div>
+
+            <div class="form-group">
+                <label>Main Road Name: </label>
+                <input class="form-control" asp-for="@Model.MAIN_ROAD_NAME" />
+            </div>
+
+            <div class="form-group">
+                <label>City: </label>
+                <input class="form-control" asp-for="@Model.CITY" />
+            </div>
+
+            <div class="form-group">
+                <label>County Name: </label>
+                <input class="form-control" asp-for="@Model.COUNTY_NAME">
+            </div>
+
+            <div class="form-group">
+                <label>Crash Severity: </label>
+                <input class="form-control" asp-for="@Model.CRASH_SEVERITY_ID" />
+            </div>
+
+            <div class="form-group">
+                <label>Work Zone Related: </label>
+                <select asp-for="@Model.WORK_ZONE_RELATED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Pedestrian Involved: </label>
+                <select asp-for="@Model.PEDESTRIAN_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Bicyclist Involved: </label>
+                <select asp-for="@Model.BICYCLIST_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Motorcycle Involved: </label>
+                <select asp-for="@Model.MOTORCYCLE_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Improper Restraint: </label>
+                <select asp-for="@Model.IMPROPER_RESTRAINT">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Unrestrained: </label>
+                <select asp-for="@Model.UNRESTRAINED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>DUI: </label>
+                <select asp-for="@Model.DUI">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Intersection Related: </label>
+                <select asp-for="@Model.INTERSECTION_RELATED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Wild Animal Related: </label>
+                <select asp-for="@Model.WILD_ANIMAL_RELATED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Domestic Animal Related: </label>
+                <select asp-for="@Model.DOMESTIC_ANIMAL_RELATED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Overturn Rollover: </label>
+                <select asp-for="@Model.OVERTURN_ROLLOVER">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Commercial Motor Vehicle Involved: </label>
+                <select asp-for="@Model.COMMERCIAL_MOTOR_VEH_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Teenage Driver Involved: </label>
+                <select asp-for="@Model.TEENAGE_DRIVER_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Older Driver Involved: </label>
+                <select asp-for="@Model.OLDER_DRIVER_INVOLVED">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Night Dark Condition: </label>
+                <select asp-for="@Model.NIGHT_DARK_CONDITION">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Single Vehicle: </label>
+                <select asp-for="@Model.SINGLE_VEHICLE">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Distracted Driving: </label>
+                <select asp-for="@Model.DISTRACTED_DRIVING">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Drowsy Driving: </label>
+                <select asp-for="@Model.DROWSY_DRIVING">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Roadway Departure: </label>
+                <select asp-for="@Model.ROADWAY_DEPARTURE">
+                    <option value="FALSE">False</option>
+                    <option value="TRUE">True</option>
+                </select>
+            </div>
+
+            <!--If Statemet to update or create based on if it is an existing record or not-->
+            @if (Model.CRASH_ID != 0)
+            {
+                <button type="submit" class="btn btn-success" asp-action="AdminUpdate">Update</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-success" asp-action="AdminCreate">Save</button>
+            }
+
+            <a class="btn btn-secondary" asp-action="Admin">Cancel</a>
+
+        </form>
     </div>
-
-    <div class="form-group">
-        <label>Year (YYYY): </label>
-        <input class="form-control" asp-for="@Model.CRASH_YEAR" />
-    </div>
-
-    <div class="form-group">
-        <label>Time (HH:mm): </label>
-        <input class="form-control" asp-for="@Model.CRASH_TIME" />
-    </div>
+</div>
 
 
-    <div class="form-group">
-        <label>Route: </label>
-        <input class="form-control" asp-for="@Model.ROUTE" />
-    </div>
-
-    <div class="form-group">
-        <label>Milepoint: </label>
-        <input class="form-control" asp-for="@Model.MILEPOINT" />
-    </div>
-
-    <div class="form-group">
-        <label>Latitude: </label>
-        <input class="form-control" asp-for="@Model.LAT_UTM_Y" />
-    </div>
-
-    <div class="form-group">
-        <label>Longitude: </label>
-        <input class="form-control" asp-for="@Model.LONG_UTM_X" />
-    </div>
-
-    <div class="form-group">
-        <label>Main Road Name: </label>
-        <input class="form-control" asp-for="@Model.MAIN_ROAD_NAME" />
-    </div>
-
-    <div class="form-group">
-        <label>City: </label>
-        <input class="form-control" asp-for="@Model.CITY" />
-    </div>
-
-    <div class="form-group">
-        <label>County Name: </label>
-        <input class="form-control" asp-for="@Model.COUNTY_NAME">
-    </div>
-
-    <div class="form-group">
-        <label>Crash Severity: </label>
-        <input class="form-control" asp-for="@Model.CRASH_SEVERITY_ID" />
-    </div>
-
-    <div class="form-group">
-        <label>Work Zone Related: </label>
-        <select asp-for="@Model.WORK_ZONE_RELATED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Pedestrian Involved: </label>
-        <select asp-for="@Model.PEDESTRIAN_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Bicyclist Involved: </label>
-        <select asp-for="@Model.BICYCLIST_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Motorcycle Involved: </label>
-        <select asp-for="@Model.MOTORCYCLE_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Improper Restraint: </label>
-        <select asp-for="@Model.IMPROPER_RESTRAINT">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Unrestrained: </label>
-        <select asp-for="@Model.UNRESTRAINED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>DUI: </label>
-        <select asp-for="@Model.DUI">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Intersection Related: </label>
-        <select asp-for="@Model.INTERSECTION_RELATED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Wild Animal Related: </label>
-        <select asp-for="@Model.WILD_ANIMAL_RELATED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Domestic Animal Related: </label>
-        <select asp-for="@Model.DOMESTIC_ANIMAL_RELATED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Overturn Rollover: </label>
-        <select asp-for="@Model.OVERTURN_ROLLOVER">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Commercial Motor Vehicle Involved: </label>
-        <select asp-for="@Model.COMMERCIAL_MOTOR_VEH_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Teenage Driver Involved: </label>
-        <select asp-for="@Model.TEENAGE_DRIVER_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Older Driver Involved: </label>
-        <select asp-for="@Model.OLDER_DRIVER_INVOLVED">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Night Dark Condition: </label>
-        <select asp-for="@Model.NIGHT_DARK_CONDITION">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Single Vehicle: </label>
-        <select asp-for="@Model.SINGLE_VEHICLE">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Distracted Driving: </label>
-        <select asp-for="@Model.DISTRACTED_DRIVING">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Drowsy Driving: </label>
-        <select asp-for="@Model.DROWSY_DRIVING">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Roadway Departure: </label>
-        <select asp-for="@Model.ROADWAY_DEPARTURE">
-            <option value="FALSE">False</option>
-            <option value="TRUE">True</option>
-        </select>
-    </div>
-
-
-    @if (Model.CRASH_ID != 0)
-    {
-        <button type="submit" class="btn btn-success" asp-action="AdminUpdate">Update</button>
-    }
-    else
-    {
-        <button type="submit" class="btn btn-success" asp-action="AdminCreate">Save</button>
-    }
-
-    <a class="btn btn-secondary" asp-action="Admin">Cancel</a>
-
-</form>

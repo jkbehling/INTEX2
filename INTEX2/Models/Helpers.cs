@@ -5,7 +5,8 @@ using System.Linq;
 using System.Web;
 
 namespace INTEX2.Models
-{
+{ 
+    //Helpers to get RDS Connection String correctly set up
     public class Helpers
     {
         public static string GetRDSConnectionString()

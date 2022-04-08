@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models.ViewModels
 {
+    //Page Info model helps with filtering capabilities on the website
     public class PageInfo
     {
         public int TotalNumCrashes { get; set; }

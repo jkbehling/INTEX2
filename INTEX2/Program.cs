@@ -11,6 +11,7 @@ namespace INTEX2
 {
     public class Program
     {
+        // default
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

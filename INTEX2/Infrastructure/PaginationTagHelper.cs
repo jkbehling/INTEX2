@@ -14,6 +14,7 @@ namespace INTEX2.Infrastructure
     [HtmlTargetElement("div", Attributes = "page-yeah")]
     public class PaginationTagHelper : TagHelper
     {
+        //Tag helpers for pagination
         private IUrlHelperFactory uhf;
         public PaginationTagHelper(IUrlHelperFactory temp)
         {
@@ -27,6 +28,7 @@ namespace INTEX2.Infrastructure
         public PageInfo PageYeah { get; set; }
         public string PageAction { get; set; }
         public string PageClass { get; set; }
+        //To make buttons different that are selected
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
        

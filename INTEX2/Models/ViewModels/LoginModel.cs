@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models.ViewModels
 {
+    //Login Model in order to login w/Username and Password
     public class LoginModel
     {
         [Required]

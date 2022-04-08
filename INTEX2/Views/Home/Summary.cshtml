@@ -12,7 +12,7 @@
 
         <p>Filter by Crash ID Number:</p>
         <br />
-
+        <!--First form to filter by just the crash id-->
         <form method="get">
             <input asp-for="crashid" />
             <button type="submit" asp-action="SummaryCrashId" class="btn btn-success mt-3 w-100 text-white">Search</button>
@@ -22,6 +22,7 @@
 
         <p>Filter by Other Parameters:</p>
 
+        <!--Big form to filter by every other parameter-->
         <form method="get">
 
             <button type="submit" asp-action="Summary" class="btn btn-success mt-2 mb-2 w-100">Filter</button>
@@ -66,6 +67,7 @@
 
             <hr />
 
+            <!--Dropdown list for month-->
             <div>
                 Month:
                 <select asp-for="month">
@@ -87,6 +89,7 @@
                 </select>
             </div>
 
+            <!--Only grabs years that are currently in database-->
             <div>
                 Year:
                 <select asp-for="year">
@@ -269,10 +272,10 @@
     </div>
 
     
-
+    <!--This displays all the data in a table-->
     <div class="col card">
         <div class="card-header">
-            <h5 class="card-title">Utah Collision Incidents</h5>
+            <h5 class="bg-info text-white text-center p-1 rounded">Utah Collision Incidents</h5>
         </div>
         <div class="card-body">
             <table class="table table-striped">

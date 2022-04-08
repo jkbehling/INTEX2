@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models
 {
+    //EF Repository inheriting from ICrashRepository
     public class EFCrashRepository : ICrashRepository
     {
         private CrashDbContext context { get; set; }
@@ -17,6 +18,7 @@ namespace INTEX2.Models
 
         public IQueryable<Crash> crashdata => context.crashdata;
 
+        //Add ability to save, create, update, delete
     public void SaveCrash(Crash c)
         {
             context.SaveChanges();

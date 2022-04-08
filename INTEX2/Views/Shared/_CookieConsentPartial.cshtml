@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http.Features
 
+@* this partial view is what the user sees that allows them to accept cookies and see the privacy policy *@
+
 @{
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
     var showBanner = !consentFeature?.CanTrack ?? false;

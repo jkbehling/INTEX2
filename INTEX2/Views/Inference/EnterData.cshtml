@@ -1,4 +1,5 @@
 ﻿@{
+    ViewData["Title"] = "Predictor";
 }
 
 @model PredictData
@@ -11,25 +12,28 @@
 
         <div class="card-body">
 
+            @* this form is where the user puts in different inputs according to the situation of the crash *@
+
             <form class="form-check" method="post" asp-controller="Inference" asp-action="Score">
 
                 <div class="form-row">
                     <div class="col form-group">
-                        <label>Hour of the Day:</label><input class="form-control" asp-for="crash_time" />
+                        <label>Hour of the Day:</label><input class="form-control" asp-for="crash_time" required/>
                     </div>
                     <div class="col form-group">
-                        <label>Day of Week:</label><input class="form-control" asp-for="crash_dayofweek" />
+                        <label>Day of Week:</label><input class="form-control" asp-for="crash_dayofweek" required/>
                     </div>
                     <div class="col form-group">
-                        <label>Year:</label><input class="form-control" asp-for="crash_year" />
+                        <label>Year:</label><input class="form-control" asp-for="crash_year" required/>
                     </div>
                     <div class="col form-group">
-                        <label>Month:</label><input class="form-control" asp-for="crash_month" />
+                        <label>Month:</label><input class="form-control" asp-for="crash_month" required/>
                     </div>
                 </div>
 
                 <div class="form-row">
 
+                    @* these values are set up as radio buttons since they're all true or false *@
 
                     <div class="col-3">
                         <p>Work Zone Related:</p>
@@ -220,6 +224,8 @@
                         <input type="radio" asp-for="roadway_departure_True" value="1" />
                         <label>Yes</label>
                     </div>
+
+                    @* after submitting the user will be sent to a page with their score *@
 
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary mt-4">Submit</button>

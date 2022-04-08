@@ -18,12 +18,14 @@ namespace INTEX2.Controllers
             _session = session;
         }
 
+        //This is for the severity prediction calculator
         [HttpGet]
         public IActionResult EnterData()
         {
             return View();
         }
 
+        //This will return the score
         [HttpPost]
         public IActionResult Score(PredictData data)
         {

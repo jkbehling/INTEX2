@@ -59,14 +59,18 @@ namespace INTEX2
 );
 
             // add connection to mysql here
+
+            //Secure connection to aws env variables
             services.AddDbContext<CrashDbContext>(options =>
             {
                 options.UseMySql(Environment.GetEnvironmentVariable("CrashDbConnection"));
             });
 
+            //Secure connection to aws env variables
             services.AddDbContext<AppIdentityDBContext>(options =>
                 options.UseMySql(Environment.GetEnvironmentVariable("IdentityConnection")));
 
+            // this is the identity services for allowing people different roles and stuff
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDBContext>();
 
@@ -78,8 +82,8 @@ namespace INTEX2
 
             services.AddServerSideBlazor();
 
+            // this is code that we will use to implement 2FA through email
             //services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
-
             //services.AddSingleton<IEmailSender, EmailSender>();
 
             // add services here for login, session, repository stuff
@@ -107,18 +111,20 @@ namespace INTEX2
             // app.UseMvc();
             app.UseRouting();
 
+            // here is stuff for authorizing admin
             app.UseAuthentication();
             app.UseAuthorization();
 
+            // allows us to use cookies that are displayed
             app.UseCookiePolicy();
 
+            // this line is important in enabling HSTS
             app.UseHsts();
+
             // app.UseHttpsRedirection();
 
-            // not sure if we will need this line ^
 
-
-            //THIS IS FOR THE CONTENT SECURITY POLICY HEADER
+            // this is for the content security policy header
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("Content-Security-Policy-Report-Only",
@@ -126,12 +132,10 @@ namespace INTEX2
                 await next();
             });
 
+
+            // end points help with specifying what the url will show when directing routes
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "county",
-                //    pattern: "",
-                //    default: );
 
                 endpoints.MapControllerRoute(
                     name: "Paging",
@@ -149,6 +153,8 @@ namespace INTEX2
                 
             });
 
+
+            // this is called since we need to populate an admin user into database
             IdentitySeedData.EnsurePopulated(app);
 
         }

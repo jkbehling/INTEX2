@@ -2,21 +2,25 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Admin Page";
 }
+
+<!--Bring in Identity and Models-->
 
 @using Microsoft.AspNetCore.Identity
 @model AdminViewModel
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<!--Home Admin page to Search and Add a Crash-->
 <div class="card mt-2">
     <div class="card-header">
-        <h1 class="card-title">Search By Crash ID:</h1>
+        <h3 class="bg-info text-white text-center p-1 rounded">Search By Crash ID:</h3>
     </div>
     <div class="card-body">
         <h3 class="card-title">@ViewBag.ErrorMessage</h3>
         <form class="form" method="post" asp-controller="Home" asp-action="AdminDetails">
-            <input asp-for="crash_id" class="input-group" />
+            <input asp-for="crash_id" class="input-group form-control w-25" />
             <button type="submit" class="btn btn-primary" asp-action="AdminDetails">Search</button>
         </form>
         

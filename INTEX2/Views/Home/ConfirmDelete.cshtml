@@ -1,17 +1,26 @@
 ﻿@{
+    ViewData["Title"] = "Delete";
 }
 @model Crash
 
 
+<!--Confirm delete page so that admin can ensure that data should actually be deleted-->
+
 <div class="card mt-2">
 
-    <h1>Are you sure you want to delete the record with id: @Model.CRASH_ID?</h1>
+    <div class="card-header">
+        <h3 class="bg-danger text-white text-center p-1 rounded">Are you sure you want to delete the record with id: @Model.CRASH_ID?</h3>
+    </div>
 
-    <form method="post" asp-action="AdminDelete">
-        <input type="hidden" asp-for="@Model.CRASH_ID" />
-        <button type="submit" class="btn btn-danger">Delete</button>
-        <a class="btn btn-info" asp-action="Admin">Cancel</a>
-    </form>
+    <!--Delete Form-->
+    <div class="card-body">
+        <form method="post" asp-action="AdminDelete">
+            <input type="hidden" asp-for="@Model.CRASH_ID" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a class="btn btn-info" asp-action="Admin">Cancel</a>
+        </form>
+    </div>
+    
 
     
 </div>

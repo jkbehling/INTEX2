@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models.ViewModels
 {
+    //Admin View Model 
     public class AdminViewModel
     {
         public IQueryable<Crash> Crashes { get; set; }

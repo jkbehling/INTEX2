@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models
 {
+    //Prediction model
     public class Prediction
     {
         public string PredictedValue { get; set; }

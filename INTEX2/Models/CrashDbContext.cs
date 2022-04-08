@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models
 {
+    //CrashDbContext file
     public class CrashDbContext : DbContext
     {
         public CrashDbContext(DbContextOptions<CrashDbContext> options) : base(options)

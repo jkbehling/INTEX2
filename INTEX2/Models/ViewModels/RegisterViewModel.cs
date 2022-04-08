@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace INTEX2.Models.ViewModels
 {
+    //Register Model to assist in registration
     public class RegisterViewModel
     {
         

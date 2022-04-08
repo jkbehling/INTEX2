@@ -6,6 +6,7 @@ namespace INTEX2.Models
 {
     public partial class Crash
     {
+        //Model to connect to data in the database
         [Key]
         [Required]
         public int CRASH_ID { get; set; }
