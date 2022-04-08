@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,21 +30,42 @@ namespace INTEX2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential 
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                // requires using Microsoft.AspNetCore.Http;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            //THIS IS FOR THE CONTENT SECURITY POLICY HEADER
+            services.AddControllersWithViews().AddMvcOptions(options =>
+            {
+                options.InputFormatters.OfType<SystemTextJsonInputFormatter>().First().SupportedMediaTypes.Add(
+                    new Microsoft.Net.Http.Headers.MediaTypeHeaderValue("application/csp-report")
+                );
+            });
+
+
+
+
             services.AddControllersWithViews();
 
             // used for .onnx file
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("crash_model (1).onnx")
+                new InferenceSession("wwwroot/crash_model (1).onnx")
 );
 
             // add connection to mysql here
             services.AddDbContext<CrashDbContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:CrashDbConnection"]);
+                options.UseMySql(Environment.GetEnvironmentVariable("CrashDbConnection"));
             });
 
             services.AddDbContext<AppIdentityDBContext>(options =>
-                options.UseMySql(Configuration["ConnectionStrings:IdentityConnection"]));
+                options.UseMySql(Environment.GetEnvironmentVariable("IdentityConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDBContext>();
@@ -56,7 +78,20 @@ namespace INTEX2
 
             services.AddServerSideBlazor();
 
+            //services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
+            //services.AddSingleton<IEmailSender, EmailSender>();
+
             // add services here for login, session, repository stuff
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 10;
+                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireDigit = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,10 +110,21 @@ namespace INTEX2
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseCookiePolicy();
+
+            app.UseHsts();
             // app.UseHttpsRedirection();
-            
+
             // not sure if we will need this line ^
 
+
+            //THIS IS FOR THE CONTENT SECURITY POLICY HEADER
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only",
+                    "default-src 'self'; report-uri /cspreport");
+                await next();
+            });
 
             app.UseEndpoints(endpoints =>
             {

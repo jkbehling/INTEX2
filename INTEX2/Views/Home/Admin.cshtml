@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using Microsoft.AspNetCore.Identity
+@model AdminViewModel
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="card mt-2">
+    <div class="card-header">
+        <h1 class="card-title">Search By Crash ID:</h1>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">@ViewBag.ErrorMessage</h3>
+        <form class="form" method="post" asp-controller="Home" asp-action="AdminDetails">
+            <input asp-for="crash_id" class="input-group" />
+            <button type="submit" class="btn btn-primary" asp-action="AdminDetails">Search</button>
+        </form>
+        
+        <hr />
+
+        <a class="btn btn-success" asp-controller="Home" asp-action="AdminCreate">Add a Crash</a>
+    </div>
+</div>

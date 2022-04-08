@@ -1,0 +1,53 @@
+﻿@{
+}
+
+@using Microsoft.AspNetCore.Identity
+@model Crash
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<h3 class="bg-info text-white text-center p-1">Details</h3>
+
+<a class="btn btn-primary" asp-action="AdminEdit" asp-route-id="@Model.CRASH_ID">Edit</a>
+<a class="btn btn-danger" asp-action="AdminDelete" asp-route-id="@Model.CRASH_ID">Delete</a>
+
+
+<table class="table table-sm table-bordered table-striped">
+    <tbody>
+        <tr><th>Crash ID:</th><td>@Model.CRASH_ID</td></tr>
+        <tr><th>Date & Time:</th><td>@Model.CRASH_DATETIME</td></tr>
+        <tr><th>Route:</th><td>@Model.ROUTE</td></tr>
+        <tr><th>Milepoint:</th><td>@Model.MILEPOINT</td></tr>
+        <tr><th>Latitude:</th><td>@Model.LAT_UTM_Y</td></tr>
+        <tr><th>Longitude:</th><td>@Model.LONG_UTM_X</td></tr>
+        <tr><th>Main Road Name:</th><td>@Model.MAIN_ROAD_NAME</td></tr>
+        <tr><th>City:</th><td>@Model.CITY</td></tr>
+        <tr><th>County:</th><td>@Model.COUNTY_NAME</td></tr>
+        <tr><th>Crash Severity:</th><td>@Model.CRASH_SEVERITY_ID</td></tr>
+        <tr><th>Work Zone Related:</th><td>@Model.WORK_ZONE_RELATED</td></tr>
+        <tr><th>Pedestrian Involved:</th><td>@Model.PEDESTRIAN_INVOLVED</td></tr>
+        <tr><th>Bicyclist Involved:</th><td>@Model.BICYCLIST_INVOLVED</td></tr>
+        <tr><th>Motorcycle Involved:</th><td>@Model.MOTORCYCLE_INVOLVED</td></tr>
+        <tr><th>Improper Restraint:</th><td>@Model.IMPROPER_RESTRAINT</td></tr>
+        <tr><th>Unrestrained:</th><td>@Model.UNRESTRAINED</td></tr>
+        <tr><th>DUI:</th><td>@Model.DUI</td></tr>
+        <tr><th>Intersection_Related:</th><td>@Model.INTERSECTION_RELATED</td></tr>
+        <tr><th>Wild Animal Related:</th><td>@Model.WILD_ANIMAL_RELATED</td></tr>
+        <tr><th>Domestic Animal Related:</th><td>@Model.DOMESTIC_ANIMAL_RELATED</td></tr>
+        <tr><th>Overturn Rollover:</th><td>@Model.OVERTURN_ROLLOVER</td></tr>
+        <tr><th>Commercial Vehicle Involved:</th><td>@Model.COMMERCIAL_MOTOR_VEH_INVOLVED</td></tr>
+        <tr><th>Teenage Driver Involved:</th><td>@Model.TEENAGE_DRIVER_INVOLVED</td></tr>
+        <tr><th>Older Drive Involved:</th><td>@Model.OLDER_DRIVER_INVOLVED</td></tr>
+        <tr><th>Night/Dark Condition:</th><td>@Model.NIGHT_DARK_CONDITION</td></tr>
+        <tr><th>Single Vehicle:</th><td>@Model.SINGLE_VEHICLE</td></tr>
+        <tr><th>Distracted Driving:</th><td>@Model.DISTRACTED_DRIVING</td></tr>
+        <tr><th>Drowsy Driving:</th><td>@Model.DROWSY_DRIVING</td></tr>
+        <tr><th>Roadway Departure:</th><td>@Model.ROADWAY_DEPARTURE</td></tr>
+        <tr>
+            <td>
+                <a class="btn btn-primary" asp-action="Summary">Back</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

@@ -1,27 +1,27 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Configuration;
-//using System.Linq;
-//using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Web;
 
-//namespace INTEX2.Models
-//{
-//    public class Helpers
-//    {
-//        public static string GetRDSConnectionString()
-//        {
-//            var appConfig = ConfigurationManager.AppSettings;
+namespace INTEX2.Models
+{
+    public class Helpers
+    {
+        public static string GetRDSConnectionString()
+        {
+            var appConfig = ConfigurationManager.AppSettings;
 
-//            string dbname = appConfig["RDS_DB_NAME"];
+            string dbname = appConfig["ebdb"];
 
-//            if (string.IsNullOrEmpty()) return null;
+            if (string.IsNullOrEmpty(dbname)) return null;
 
-//            string username = appConfig["RDS_USERNAME"];
-//            string password = appConfig["RDS_PASSWORD"];
-//            string hostname = appConfig["RDS_HOSTNAME"];
-//            string port = appConfig["RDS_PORT"];
+            string username = appConfig["admin"];
+            string password = appConfig["Ican'twaittofinishintexandthecore!$$$"];
+            string hostname = appConfig["aage4mnx7cezcn.c1dtnhbcknoc.us-east-1.rds.amazonaws.com"];
+            string port = appConfig["3306"];
 
-//            return "Data Source=" + hostname + ";Initial Catalog=" + dbname + ";User ID=" + username + ";Password=" + password + ";";
-//        }
-//    }
-//}
+            return "Data Source=" + hostname + ";Initial Catalog=" + dbname + ";User ID=" + username + ";Password=" + password + ";";
+        }
+    }
+}

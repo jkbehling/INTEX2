@@ -6,53 +6,167 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/paper-dashboard-master/assets/css/paper-dashboard.css" rel="stylesheet" />
+    <link href="~/myStyles.css" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Utah Crash Information</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Summary">Crash Details</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Predictor">Collision Severity Predictor</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Admin Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Inference" asp-action="EnterData">Predictor</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+<body style="min-height: 100%;">
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Utah Crash Information</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Summary">Crash Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Admin Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Inference" asp-action="EnterData">Predictor</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
+
+    <div class="">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <div class="logo-image-small">
+                    <a class="simple-text logo-normal" asp-area="" asp-controller="Home" asp-action="Index">
+                        Home
+                    </a>
+                </div>
+
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="">
+                        <a asp-area="" asp-controller="Home" asp-action="Summary">
+                            Crash Details
+                            <i class="nc-icon nc-tile-56"></i>
+                        </a>
+
+
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Account" asp-action="Login">
+                            Admin Login
+                            <i class="nc-icon nc-diamond"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Account" asp-action="Register">
+                            Register Admin Account
+                            <i class="nc-icon nc-diamond"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Inference" asp-action="EnterData">
+                            Predictor
+                            <i class="nc-icon nc-pin-3"></i>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-controller="Home" asp-action="MoreInfo">
+                            More Info
+                            <i class="nc-icon nc-bell-55"></i>
+                        </a>
+
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - BYU Information Systems 2-4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="row" style="background-color: #FFF9F2;">
+        <div class="col-2">
+
         </div>
-    </footer>
+
+        <div class="col-10">
+            <div class="row">
+                <div class="col">
+                    <partial name="_CookieConsentPartial" />
+                </div>
+                
+            </div>
+            
+            @RenderBody()
+
+
+            @*<footer class="footer footer-black  footer-white ">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="footer-nav">
+                        <ul>
+                            <li><a>&copy; 2022 - BYU Information Systems 2-4</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                        </ul>
+                    </nav>
+                    <div class="credits ml-auto">
+                        <span class="copyright">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>*@
+            <div class="border-top text-muted mt-5 Myfooter">
+                <div class="container">
+                    &copy; 2022 - BYU Information Systems 2-4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+
+
+
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <script src="~/paper-dashboard-master/assets/js/core/jquery.min.js"></script>
+    <script src="~/paper-dashboard-master/assets/js/core/popper.min.js"></script>
+    <script src="~/paper-dashboard-master/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/paper-dashboard-master/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="~/paper-dashboard-master/assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/paper-dashboard-master/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/paper-dashboard-master/assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/paper-dashboard-master/assets/demo/demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+    </script>
 </body>
 </html>

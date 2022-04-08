@@ -3,16 +3,19 @@
 }
 @model SummaryViewModel
 
+
+   
+
 <div class="row m-1 p-1">
 
-    <div id="counties" class="col-3" style="background-color:aliceblue">
+    <div id="counties" class="col-3 card mr-2" style="">
 
         <p>Filter by Crash ID Number:</p>
         <br />
 
         <form method="get">
             <input asp-for="crashid" />
-            <button type="submit" asp-action="SummaryCrashId" class="btn btn-success mt-3 w-100">Search</button>
+            <button type="submit" asp-action="SummaryCrashId" class="btn btn-success mt-3 w-100 text-white">Search</button>
         </form>
 
         <hr style="height:2px"/>
@@ -67,6 +70,7 @@
                 Month:
                 <select asp-for="month">
 
+                    <option value="0">No Selection</option>
                     <option value="1">January</option>
                     <option value="2">Februrary</option>
                     <option value="3">March</option>
@@ -264,57 +268,66 @@
         </form>
     </div>
 
-    <div class="text-center col-9">
-        <h1 class="display-4">Utah Collision Incidents</h1>
+    
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Crash ID</th>
-                    <th>Date</th>
-                    <th>Route</th>
-                    <th>Milepoint</th>
-                    <th>Main Road Name</th>
-                    <th>City</th>
-                    <th>County</th>
-                    <th>Crash Severity</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var x in Model.Crashes)
-                {
+    <div class="col card">
+        <div class="card-header">
+            <h5 class="card-title">Utah Collision Incidents</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>@x.CRASH_ID</td>
-                        <td>@x.CRASH_DAY/@x.CRASH_MONTH/@x.CRASH_YEAR</td>
-                        <td>@x.ROUTE</td>
-                        <td>@x.MILEPOINT</td>
-                        <td>@x.MAIN_ROAD_NAME</td>
-                        <td>@x.CITY</td>
-                        <td>@x.COUNTY_NAME</td>
-                        <td>@x.CRASH_SEVERITY_ID</td>
+                        <th>Crash ID</th>
+                        <th>Date</th>
+                        <th>Route</th>
+                        <th>Milepoint</th>
+                        <th>Main Road Name</th>
+                        <th>City</th>
+                        <th>County</th>
+                        <th>Crash Severity</th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model.Crashes)
+                    {
+                        <tr>
+                            <td>@x.CRASH_ID</td>
+                            <td>@x.CRASH_DAY/@x.CRASH_MONTH/@x.CRASH_YEAR</td>
+                            <td>@x.ROUTE</td>
+                            <td>@x.MILEPOINT</td>
+                            <td>@x.MAIN_ROAD_NAME</td>
+                            <td>@x.CITY</td>
+                            <td>@x.COUNTY_NAME</td>
+                            <td>@x.CRASH_SEVERITY_ID</td>
+                            <td>
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@x.CRASH_ID">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
 
-        </table>
+            </table>
 
-        <div class="row">
-            <div class="col text-right">
-                <div page-yeah="@Model.PageInfo" page-action="Summary" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
+            <div class="row">
+                <div class="col text-right">
+                    <div page-yeah="@Model.PageInfo" page-action="Summary" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
 
-            </div>
+                </div>
 
-           
-            
-            <div class="col text-left">
-                <form method="get">
 
-                    <input asp-for="pageNum" class="form-control w-25" />
-                    <button type="submit" asp-action="Summary" class="btn"></button>
 
-                </form>
+                <div class="col text-left">
+                    <form method="get">
+
+                        <input asp-for="pageNum" class="form-control w-25" />
+                        <button type="submit" asp-action="Summary" class="btn">Nav</button>
+
+                    </form>
+                </div>
             </div>
         </div>
-
     </div>
+    
 </div>

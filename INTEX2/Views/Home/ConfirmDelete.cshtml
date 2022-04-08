@@ -1,0 +1,17 @@
+﻿@{
+}
+@model Crash
+
+
+<div class="card mt-2">
+
+    <h1>Are you sure you want to delete the record with id: @Model.CRASH_ID?</h1>
+
+    <form method="post" asp-action="AdminDelete">
+        <input type="hidden" asp-for="@Model.CRASH_ID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-info" asp-action="Admin">Cancel</a>
+    </form>
+
+    
+</div>

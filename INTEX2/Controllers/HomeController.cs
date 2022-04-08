@@ -1,5 +1,9 @@
 ﻿using INTEX2.Models;
 using INTEX2.Models.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -30,14 +34,14 @@ namespace INTEX2.Controllers
             return View();
         }
 
-        public IActionResult Summary(int pageNum  =  1, int severity  =  0, string county  =  null, string theRoute  =  null, string city  =  null, int month=0, string year=null, string workzone  =  null, float milepoint=0,
-            string road  =  null, float latitude  =  0, float longitude  =  0, string pedestrian  =  null, string bicyclist  =  null, string motorcycle  =  null,
-            string improperrestraint  =  null, string unrestrained  =  null, string dui  =  null, string intersection  =  null, string wildanimal  =  null, string domesticanimal  =  null, string rollover  =  null,
-            string commercial  =  null, string teenager  =  null, string older  =  null, string night  =  null, string single  =  null, string distracted  =  null, string departure  =  null, string drowsy  =  null)
+        public IActionResult Summary(int pageNum = 1, int severity = 0, string county = null, string theRoute = null, string city = null, int month   =   0, string year   =   null, string workzone = null, float milepoint   =   0,
+            string road = null, float latitude = 0, float longitude = 0, string pedestrian = null, string bicyclist = null, string motorcycle = null,
+            string improperrestraint = null, string unrestrained = null, string dui = null, string intersection = null, string wildanimal = null, string domesticanimal = null, string rollover = null,
+            string commercial = null, string teenager = null, string older = null, string night = null, string single = null, string distracted = null, string departure = null, string drowsy = null)
         {
-            
-            
-            int pageSize = 20;
+
+
+            int pageSize = 40;
             ViewBag.Counties = repo.crashdata.Select(x => x.COUNTY_NAME).Distinct();
             ViewBag.Severity = repo.crashdata.Select(x => x.CRASH_SEVERITY_ID).Distinct();
             ViewBag.Years = repo.crashdata.Select(x => x.CRASH_YEAR).Distinct();
@@ -126,9 +130,9 @@ namespace INTEX2.Controllers
             return View(x);
         }
 
-        public IActionResult SummaryCrashId(int crashid, int pageNum  =  1)
+        public IActionResult SummaryCrashId(int crashid, int pageNum = 1)
         {
-            int pageSize = 20;
+            int pageSize = 50;
             ViewBag.Counties = repo.crashdata.Select(x => x.COUNTY_NAME).Distinct();
             ViewBag.Severity = repo.crashdata.Select(x => x.CRASH_SEVERITY_ID).Distinct();
             var currentCrashes = repo.crashdata.Where(x => x.CRASH_ID == crashid);
@@ -159,5 +163,117 @@ namespace INTEX2.Controllers
         {
             return View();
         }
+
+        public IActionResult Details(int id)
+        {
+            var x = repo.crashdata.Single(x => x.CRASH_ID == id);
+            return View(x);
+        }
+
+        [Authorize]
+        public IActionResult Admin(LoginModel loginModel)
+        {
+            var x = repo.crashdata;
+
+            var y = new AdminViewModel
+            {
+                Crashes = x,
+                crash_id = 0
+            };
+
+            return View(y);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AdminDetails(int crash_id)
+        {
+            Crash x = repo.crashdata.FirstOrDefault(x => x.CRASH_ID == crash_id);
+            if(x != null)
+            {
+                return View(x);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "This ID doesn't exist.";
+                return View("Admin");
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult AdminCreate()
+        {
+            Crash crash = new Crash();
+            return View(crash);
+        }
+        [HttpPost]
+        public IActionResult AdminCreate(Crash c)
+        {
+            if (ModelState.IsValid)
+            {
+                c.CRASH_ID = (repo.crashdata.Max(c => c.CRASH_ID))+1;
+                c.CRASH_DATETIME = c.CRASH_YEAR + "-" + c.CRASH_MONTH + "-" + c.CRASH_DAY + "T" + c.CRASH_TIME;
+                repo.CreateCrash(c);
+
+                return View("Admin");
+            }
+            else
+            {
+                return View(c);
+            }
+        }
+
+        public IActionResult AdminEdit()
+        {
+            int id = Convert.ToInt32(RouteData.Values["id"]);
+            Crash y = repo.crashdata.Single(x => x.CRASH_ID == id);
+            return View("AdminCreate", y);
+        }
+
+        public IActionResult AdminUpdate(Crash c)
+        {
+            if (ModelState.IsValid)
+            {
+                repo.UpdateCrash(c);
+
+                return View("Admin");
+            }
+            else
+            {
+                return View(c);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AdminDelete()
+        {
+
+            int id = Convert.ToInt32(RouteData.Values["id"]);
+            Crash y = repo.crashdata.Single(x => x.CRASH_ID == id);
+
+            return View("ConfirmDelete", y);
+        }
+
+        [HttpPost]
+        public IActionResult AdminDelete(Crash c)
+        {
+
+            repo.DeleteCrash(c);
+
+            return View("Admin");
+        }
+
+        public IActionResult ConfirmDelete(Crash c)
+        {
+            return View(c);
+        }
+
+        public IActionResult MoreInfo()
+        {
+            return View();
+        }
+
+        
     }
 }

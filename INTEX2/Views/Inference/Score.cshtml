@@ -3,4 +3,12 @@
 
 @model Prediction
 
-<h1>Prediction: @Model.PredictedValue</h1>
+<div class="card mt-2">
+    <div class="card-header">
+        <h2 class="card-title">Predicted Severity (1-5):</h2>
+    </div>
+    <div class="card-body">
+        <h1>@Model.PredictedValue</h1>
+    </div>
+</div>
+

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// Controller for Loging in
+// Controller for Logging in
 
 namespace INTEX2.Controllers
 {
@@ -27,6 +27,7 @@ namespace INTEX2.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
+            
             return View(new LoginModel { ReturnUrl = returnUrl });
         }
 
@@ -40,6 +41,11 @@ namespace INTEX2.Controllers
                 // Find the user associated with the passed in name
                 IdentityUser user = await userManager.FindByNameAsync(loginModel.Username);
 
+                //if (user.TwoFactorEnabled)
+                //{
+                //    return RedirectToAction("LoginTwoStep");
+                //}
+
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();
@@ -47,7 +53,7 @@ namespace INTEX2.Controllers
                     // Try logining in when password matches account password
                     if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Home/Admin");
                     }
                 }
             }
@@ -58,6 +64,28 @@ namespace INTEX2.Controllers
 
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> LoginTwoStep(string email, bool rememberMe, string returnUrl = null)
+        //{
+            
+        //    var user = await userManager.FindByEmailAsync(email);
+            
+        //    var providers = await userManager.GetValidTwoFactorProvidersAsync(user);
+            
+        //    var token = await userManager.GenerateTwoFactorTokenAsync(user, "Email");
+        //    var message = new Message(new string[] { email }, "Authentication token", token, null);
+        //    await emailSender.SendEmailAsync(message);
+        //    ViewData["ReturnUrl"] = returnUrl;
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> LoginTwoStep(TwoStepModel twoStepModel, string returnUrl = null)
+        //{
+        //    return View();
+        //}
+
         // This is so we can log out too
 
         public async Task<RedirectResult> Logout(string returnUrl = "/")
@@ -65,6 +93,42 @@ namespace INTEX2.Controllers
             await signInManager.SignOutAsync();
 
             return Redirect(returnUrl);
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser (model.Email);
+                user.Email = model.Email;
+                user.PhoneNumber = "384-987-5468";
+                 
+                var result = await userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach  (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                
+                
+
+               
+            }
+            return View(model);
         }
 
     }

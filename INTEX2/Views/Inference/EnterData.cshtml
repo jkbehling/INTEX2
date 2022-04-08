@@ -3,117 +3,238 @@
 
 @model PredictData
 
-<form class="form-check" method="post" asp-controller="Inference" asp-action="Score">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h1 class="card-title">Crash Severity Predictor</h1>
+        </div>
+        <hr />
 
-    <div class="form-row">
-        <div class="form-group mr-4">
-            <label>Time:</label><input class="form-control" asp-for="crash_time" />
-        </div>
-        <div class="form-group mr-4">
-            <label>Day of Week:</label><input class="form-control" asp-for="crash_dayofweek" />
-        </div>
-        <div class="form-group mr-4">
-            <label>Year:</label><input class="form-control" asp-for="crash_year" />
-        </div>
-        <div class="form-group mr-4">
-            <label>Month:</label><input class="form-control" asp-for="crash_month" />
-        </div>
-    </div>
-    
-    <div class="form-row">
+        <div class="card-body">
 
-        
-            <div class="col">
-                <p>Work Zone Related:</p>
-                <div class="row">
-                    <div class="col">
-                        <input class="form-check-input" type="radio" asp-for="work_zone_related_True" value="0" checked="checked" />
-                        <label class="form-check-label text-right">No:</label>
+            <form class="form-check" method="post" asp-controller="Inference" asp-action="Score">
+
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label>Hour of the Day:</label><input class="form-control" asp-for="crash_time" />
                     </div>
-                    <div class="col">
-                        <input class="form-check-input" type="radio" asp-for="work_zone_related_True" value="1" />
-                        <label class="form-check-label">Yes:</label>
+                    <div class="col form-group">
+                        <label>Day of Week:</label><input class="form-control" asp-for="crash_dayofweek" />
+                    </div>
+                    <div class="col form-group">
+                        <label>Year:</label><input class="form-control" asp-for="crash_year" />
+                    </div>
+                    <div class="col form-group">
+                        <label>Month:</label><input class="form-control" asp-for="crash_month" />
                     </div>
                 </div>
 
-            </div>
-            <div class="col">
-                <p>Pedestrian Involved:</p>
-                <div class="row">
-                    <div class="col">
+                <div class="form-row">
+
+
+                    <div class="col-3">
+                        <p>Work Zone Related:</p>
+                        <input type="radio" asp-for="work_zone_related_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="work_zone_related_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Pedestrian Involved:</p>
+                        <input type="radio" asp-for="pedestrian_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="pedestrian_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Bicyclist Involved:</p>
+                        <input type="radio" asp-for="bicyclist_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="bicyclist_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Motorcyclist Involved:</p>
+                        <input type="radio" asp-for="motorcycle_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="motorcycle_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+
+                    <div class="col-3">
+                        <p>Improper Restraint:</p>
+                        <input type="radio" asp-for="improper_restraint_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="improper_restraint_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Unrestrained:</p>
+                        <input type="radio" asp-for="unrestrained_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="unrestrained_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>DUI:</p>
+                        <input type="radio" asp-for="dui_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="dui_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Intersection Related:</p>
+                        <input type="radio" asp-for="intersection_related_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="intersection_related_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="col-3">
+                        <p>Wild Animal Related:</p>
+                        <input type="radio" asp-for="wild_animal_related_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="wild_animal_related_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Domestic Animal Related:</p>
+                        <input type="radio" asp-for="domestic_animal_related_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="domestic_animal_related_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Overturn Rollover:</p>
+                        <input type="radio" asp-for="overturn_rollover_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="overturn_rollover_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Commercial Motor Vehicle Involved:</p>
+                        <input type="radio" asp-for="commercial_motor_veh_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="commercial_motor_veh_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="col-3">
+                        <p>Teenager Driver Involved:</p>
+                        <input type="radio" asp-for="teenage_driver_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="teenage_driver_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Older Driver Involved:</p>
+                        <input type="radio" asp-for="older_driver_involved_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="older_driver_involved_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Night/Dark Condition:</p>
+                        <input type="radio" asp-for="night_dark_condition_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="night_dark_condition_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Single Vehicle Accident:</p>
+                        <input type="radio" asp-for="single_vehicle_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="single_vehicle_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="col-3">
+                        <p>Distracted:</p>
+                        <input type="radio" asp-for="distracted_driving_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="distracted_driving_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Drowsy Driving:</p>
+                        <input type="radio" asp-for="drowsy_driving_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="drowsy_driving_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <p>Roadway Departure:</p>
+                        <input type="radio" asp-for="roadway_departure_True" value="0" checked="checked" />
+                        <label class="mr-3">No</label>
+
+                        <input type="radio" asp-for="roadway_departure_True" value="1" />
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
                         
-                        <input class="form-check-input" type="radio" asp-for="pedestrian_involved_True" value="0" checked="checked" /><label class="form-check-label">No:</label>
-                        <input class="form-check-input" type="radio" asp-for="pedestrian_involved_True" value="1" /><label class="form-check-label">Yes:</label>
                     </div>
-                    <div class="col">
 
-                    </div>
                 </div>
-                
-            </div>
-            <div class="col">
-                <p>Bicyclist Involved:</p>
-                <input class="form-check-input" type="radio" asp-for="bicyclist_involved_True" value="0" checked="checked" />
-                <label class="form-check-label">No:</label>
-                <input class="form-check-input" type="radio" asp-for="bicyclist_involved_True" value="1" /><label class="form-check-label">Yes:</label>
-            </div>
-            <div class="col">
-                <p>Motorcyclist Involved:</p>
-                <input class="form-check-input" type="radio" asp-for="motorcycle_involved_True" value="0" checked="checked" />
-                <label class="form-check-label">No:</label>
-                <input class="form-check-input" type="radio" asp-for="motorcycle_involved_True" value="1" /><label class="form-check-label">Yes:</label>
-            </div>
+
+            </form>
+
+
+
         </div>
-        
-
-    
-    
-    <div>
-        <label>Improper Restraint:</label><input asp-for="improper_restraint_True" />
-    </div>
-    <div>
-        <label>Unrestrained:</label><input asp-for="unrestrained_True" />
-    </div>
-    <div>
-        <label>DUI:</label><input asp-for="dui_True" />
-    </div>
-    <div>
-        <label>Intersection:</label><input asp-for="intersection_related_True" />
-    </div>
-    <div>
-        <label>Wild Animal:</label><input asp-for="wild_animal_related_True" />
-    </div>
-    <div>
-        <label>Domestic Animal:</label><input asp-for="domestic_animal_related_True" />
-    </div>
-    <div>
-        <label>Overturn Rollover:</label><input asp-for="overturn_rollover_True" />
-    </div>
-    <div>
-        <label>Commercial Vehicle:</label><input asp-for="commercial_motor_veh_involved_True" />
-    </div>
-    <div>
-        <label>Teenage Driver:</label><input asp-for="teenage_driver_involved_True" />
-    </div>
-    <div>
-        <label>Older Driver:</label><input asp-for="older_driver_involved_True" />
-    </div>
-    <div>
-        <label>Night:</label><input asp-for="night_dark_condition_True" />
-    </div>
-    <div>
-        <label>Single Vehicle:</label><input asp-for="single_vehicle_True" />
-    </div>
-    <div>
-        <label>Distracted:</label><input asp-for="distracted_driving_True" />
-    </div>
-    <div>
-        <label>Drowsy:</label><input asp-for="drowsy_driving_True" />
-    </div>
-    <div>
-        <label>Roadway Departure:</label><input asp-for="roadway_departure_True" />
     </div>
 
-    <button type="submit">Submit</button>
 
-</form>
+
+

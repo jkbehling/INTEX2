@@ -1,0 +1,1077 @@
+﻿@{
+    ViewData["Title"] = "More Information";
+}
+
+
+
+    <style>
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+
+
+    <h2>More Info:</h2>
+
+
+    <h4>Explaining Crash Severity Levels:</h4>
+    <button type="button" class="collapsible">Level 1</button>
+    <div class="content">
+        <p>
+            No Apparent Injury (O) (Attribute value = 1): No apparent injury is a situation where there is no reason to believe
+            that the person received any bodily harm from the motor vehicle crash. There is no physical evidence of injury and
+            the person does not report any change in normal function.
+        </p>
+    </div>
+    <button type="button" class="collapsible">Level 2</button>
+    <div class="content">
+        <p>
+            Possible Injury (C) (Attribute value = 2): A possible injury is any injury reported or claimed which is not a fatal,
+            suspected serious, or suspected minor injury. Examples include momentary loss of consciousness, claim of injury,
+            limping, or complaint of pain or nausea. Possible injuries are those that are reported by the person or are indicated
+            by his/her behavior, but no wounds or injuries are readily evident.
+        </p>
+    </div>
+    <button type="button" class="collapsible">Level 3</button>
+    <div class="content">
+        <p>
+            Suspected Minor Injury (B) (Attribute value = 3): A minor injury is any injury that is evident at the scene of the crash,
+            other than fatal or serious injuries. Examples include lump on the head, abrasions, bruises, minor lacerations (cuts
+            on the skin surface with minimal bleeding and no exposure of deeper tissue/muscle).
+        </p>
+    </div>
+    <button type="button" class="collapsible">Level 4</button>
+    <div class="content">
+        <p>
+            Suspected Serious Injury (A) (Attribute value = 4): A suspected serious injury is any injury other than fatal which
+            results in one or more of the following:
+            • Severe laceration resulting in exposure of underlying tissues/muscle/organs or resulting in significant loss
+            of blood
+            • Broken or distorted extremity (arm or leg)
+            • Crush injuries
+            • Suspected skull, chest or abdominal injury other than bruises or minor lacerations
+            • Significant burns (second and third degree burns over 10% or more of the body)
+            • Unconsciousness when taken from the crash scene
+            • Paralysis
+        </p>
+    </div>
+    <button type="button" class="collapsible">Level 5</button>
+    <div class="content">
+        <p>
+            Fatal Injury (K) (Attribute value = 5): fatal injury is any injury that results in death within 30 days after the motor
+            vehicle crash in which the injury occurred. If the person did not die at the scene but died within 30 days of the motor
+            vehicle crash in which the injury occurred, the injury classification should be changed from the attribute previously
+            assigned to the attribute “Fatal Injury.”
+        </p>
+    </div>
+
+<hr />
+
+    <div class="form-row">
+        <div class="col-3">
+            <button type="button" class="collapsible">County Populations in Utah</button>
+            <div class="content">
+                <ul>
+                    <li>Salt Lake County: 1,185,238</li>
+                    <li>Utah County: 659,399</li>
+                    <li>Davis County: 362,679</li>
+                    <li>Weber County: 262,223</li>
+                    <li>Washington County: 180,279</li>
+                    <li>Cache County: 133,154</li>
+                    <li>Tooele County: 72,698</li>
+                    <li>Box Elder County: 57,666</li>
+                    <li>Iron County: 57,289</li>
+                    <li>Summit County: 42,357</li>
+                    <li>Uintah County: 35,620</li>
+                    <li>Wasatch County: 34,788</li>
+                    <li>Sanpete County: 28,437</li>
+                    <li>Sevier County: 21,522</li>
+                    <li>Carbon County: 20,412</li>
+                    <li>Duchesne County: 19,596</li>
+                    <li>San Juan County: 14,518</li>
+                    <li>Millard County: 12,975</li>
+                    <li>Morgan County: 12,295</li>
+                    <li>Juab County: 11,786</li>
+                    <li>Emery County: 9,825</li>
+                    <li>Grand County: 9,669</li>
+                    <li>Kane County: 7,667</li>
+                    <li>Beaver County: 7,072</li>
+                    <li>Garfield County: 5,083</li>
+                    <li>Rich County: 2,510</li>
+                    <li>Wayne County: 2,486</li>
+                    <li>Piute County: 1,438</li>
+                    <li>Daggett County: 935</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">City Populations in Utah</button>
+            <div class="content">
+                <ul>
+                    <li>Salt Lake City - 200133</li>
+                    <li>West Valley City - 135610</li>
+                    <li>Provo - 116886</li>
+                    <li>West Jordan - 115181</li>
+                    <li>Orem - 97883</li>
+                    <li>Sandy - 96137</li>
+                    <li>St. George - 87176</li>
+                    <li>Ogden - 87175</li>
+                    <li>Layton - 77268</li>
+                    <li>South Jordan - 73695</li>
+                    <li>Lehi - 66980</li>
+                    <li>Millcreek - 60828</li>
+                    <li>Taylorsville - 59926</li>
+                    <li>Logan - 51266</li>
+                    <li>Murray - 48969</li>
+                    <li>Draper - 48594</li>
+                    <li>Herriman - 45211</li>
+                    <li>Bountiful - 43991</li>
+                    <li>Riverton - 43793</li>
+                    <li>Spanish Fork - 40069</li>
+                    <li>Roy - 39243</li>
+                    <li>Pleasant Grove - 38474</li>
+                    <li>Kearns - 36457</li>
+                    <li>Eagle Mountain - 35431</li>
+                    <li>Tooele - 35313</li>
+                    <li>Cottonwood Heights - 33865</li>
+                    <li>Midvale - 33708</li>
+                    <li>Cedar City - 33404</li>
+                    <li>Springville - 33251</li>
+                    <li>Kaysville - 31957</li>
+                    <li>American Fork - 31636</li>
+                    <li>Clearfield - 31622</li>
+                    <li>Saratoga Springs - 31273</li>
+                    <li>Holladay - 30461</li>
+                    <li>Syracuse - 30366</li>
+                    <li>Washington - 28192</li>
+                    <li>Magna - 27029</li>
+                    <li>South Salt Lake - 25125</li>
+                    <li>Farmington - 24439</li>
+                    <li>Clinton - 22191</li>
+                    <li>North Salt Lake - 20721</li>
+                    <li>Payson - 20181</li>
+                    <li>North Ogden - 19930</li>
+                    <li>Brigham City - 19336</li>
+                    <li>Highland - 19012</li>
+                    <li>Hurricane - 18112</li>
+                    <li>Centerville - 17527</li>
+                    <li>South Ogden - 17080</li>
+                    <li>Heber - 16362</li>
+                    <li>West Haven - 15003</li>
+                    <li>Bluffdale - 14802</li>
+                    <li>Santaquin - 12276</li>
+                    <li>Smithfield - 11670</li>
+                    <li>Grantsville - 11488</li>
+                    <li>Woods Cross - 11423</li>
+                    <li>Lindon - 11072</li>
+                    <li>North Logan - 10978</li>
+                    <li>West Point - 10829</li>
+                    <li>Alpine - 10509</li>
+                    <li>Pleasant View - 10460</li>
+                    <li>Vernal - 10449</li>
+                    <li>Mapleton - 10270</li>
+                    <li>Cedar Hills - 10190</li>
+                    <li>Stansbury Park - 9271</li>
+                    <li>Washington Terrace - 9181</li>
+                    <li>Ivins - 8931</li>
+                    <li>Tremonton - 8890</li>
+                    <li>Hooper - 8850</li>
+                    <li>Riverdale - 8826</li>
+                    <li>Vineyard - 8628</li>
+                    <li>Park City - 8467</li>
+                    <li>Hyrum - 8415</li>
+                    <li>Salem - 8403</li>
+                    <li>Price - 8303</li>
+                    <li>Summit Park - 8177</li>
+                    <li>Santa Clara - 7868</li>
+                    <li>Richfield - 7813</li>
+                    <li>Providence - 7732</li>
+                    <li>South Weber - 7631</li>
+                    <li>Ephraim - 7222</li>
+                    <li>Farr West - 7197</li>
+                    <li>Plain City - 7159</li>
+                    <li>Roosevelt - 7077</li>
+                    <li>Enoch - 7044</li>
+                    <li>Nibley - 6993</li>
+                    <li>Harrisville - 6637</li>
+                    <li>Fruit Heights - 6205</li>
+                    <li>Nephi - 6168</li>
+                    <li>Snyderville - 5995</li>
+                    <li>White City - 5792</li>
+                    <li>West Bountiful - 5724</li>
+                    <li>Sunset - 5309</li>
+                    <li>Moab - 5303</li>
+                    <li>Midway - 5210</li>
+                    <li>Perry - 5090</li>
+                    <li>Kanab - 4767</li>
+                    <li>Hyde Park - 4703</li>
+                    <li>La Verkin - 4383</li>
+                    <li>Morgan - 4259</li>
+                    <li>Maeser - 4064</li>
+                    <li>Elk Ridge - 3994</li>
+                    <li>Wellsville - 3847</li>
+                    <li>Mountain Green - 3694</li>
+                    <li>Manti - 3671</li>
+                    <li>Delta - 3604</li>
+                    <li>Blanding - 3594</li>
+                    <li>Naples - 3512</li>
+                    <li>Gunnison - 3511</li>
+                    <li>East Basin - 3486</li>
+                    <li>Mount Pleasant - 3471</li>
+                    <li>Beaver - 3115</li>
+                    <li>Parowan - 3104</li>
+                    <li>Erda - 3071</li>
+                    <li>Hildale - 2921</li>
+                    <li>Richmond - 2733</li>
+                    <li>Salina - 2603</li>
+                    <li>Kamas - 2591</li>
+                    <li>Fillmore - 2585</li>
+                    <li>Monticello - 2570</li>
+                    <li>Garland - 2554</li>
+                    <li>Helper - 2346</li>
+                    <li>Monroe - 2322</li>
+                    <li>Huntington - 2131</li>
+                    <li>Lewiston - 2091</li>
+                    <li>Coalville - 2066</li>
+                    <li>Wolf Creek - 2027</li>
+                    <li>Duchesne - 2019</li>
+                    <li>River Heights - 1980</li>
+                    <li>Millville - 1895</li>
+                    <li>Marriott-Slaterville - 1862</li>
+                    <li>Milford - 1827</li>
+                    <li>Benson - 1793</li>
+                    <li>Panguitch - 1718</li>
+                    <li>Mona - 1699</li>
+                    <li>Toquerville - 1689</li>
+                    <li>Willard - 1688</li>
+                    <li>Honeyville - 1651</li>
+                    <li>Enterprise city - 1602</li>
+                    <li>Genola - 1601</li>
+                    <li>Oakley - 1600</li>
+                    <li>Emigration Canyon - 1598</li>
+                    <li>East Carbon - 1589</li>
+                    <li>Uintah - 1562</li>
+                    <li>Centerfield - 1531</li>
+                    <li>South Willard - 1519</li>
+                    <li>Ballard - 1508</li>
+                    <li>Wellington - 1501</li>
+                    <li>Ferron - 1475</li>
+                    <li>Fairview - 1438</li>
+                    <li>Woodland Hills - 1422</li>
+                    <li>Moroni - 1405</li>
+                    <li>Castle Dale - 1380</li>
+                    <li>West Mountain - 1370</li>
+                    <li>Francis - 1364</li>
+                    <li>Elwood - 1354</li>
+                    <li>Mendon - 1342</li>
+                    <li>Wendover - 1258</li>
+                    <li>Silver Summit - 1256</li>
+                    <li>Orangeville - 1253</li>
+                    <li>Carbonville - 1170</li>
+                    <li>Daniel - 1147</li>
+                    <li>Fountain Green - 1140</li>
+                    <li>Spring Glen - 1126</li>
+                    <li>Stockton - 1072</li>
+                    <li>Rocky Ridge - 1069</li>
+                    <li>Spring City - 1027</li>
+                    <li>Lake Shore - 1020</li>
+                    <li>Mantua - 1017</li>
+                    <li>Riverside - 1010</li>
+                    <li>Hideout - 989</li>
+                    <li>Apple Valley - 983</li>
+                    <li>Liberty - 971</li>
+                    <li>Randolph - 968</li>
+                    <li>Central - 940</li>
+                    <li>Goshen - 929</li>
+                    <li>Benjamin and Annabella - 886</li>
+                    <li>Levan - 878</li>
+                    <li>West Wood - 864</li>
+                    <li>Henefer and Enterprise - 844</li>
+                    <li>Aurora - 842</li>
+                    <li>Copperton - 839</li>
+                    <li>Eden - 828</li>
+                    <li>Timber Lakes - 824</li>
+                    <li>Hinckley - 812</li>
+                    <li>Granite and Newton - 800</li>
+                    <li>Green River - 793</li>
+                    <li>Paradise - 788</li>
+                    <li>Minersville - 785</li>
+                    <li>Oak City - 767</li>
+                    <li>Elsinore - 762</li>
+                    <li>Oljato-Monument Valley - 758</li>
+                    <li>Central Valley - 757</li>
+                    <li>Dammeron Valley - 738</li>
+                    <li>Marion - 721</li>
+                    <li>Bear River City - 714</li>
+                    <li>Virgin - 707</li>
+                    <li>Corinne - 702</li>
+                    <li>Huntsville - 697</li>
+                    <li>Redmond - 694</li>
+                    <li>Escalante - 693</li>
+                    <li>Clarkston - 691</li>
+                    <li>Thatcher - 684</li>
+                    <li>Loa - 667</li>
+                    <li>Glenwood - 664</li>
+                    <li>Circleville - 660</li>
+                    <li> Leeds - 652</li>
+                    <li>Fielding - 643</li>
+                    <li>Kanosh - 636</li>
+                    <li>Eureka - 630</li>
+                    <li>Big Water - 620</li>
+                    <li>Dugway - 618</li>
+                    <li>Trenton - 556</li>
+                    <li>Myton - 554</li>
+                    <li>Palmyra - 551</li>
+                    <li>Charleston - 550</li>
+                    <li>Cleveland - 545</li>
+                    <li>Holden - 543</li>
+                    <li>Marysvale and Hoytsville - 524</li>
+                    <li>Amalga - 520</li>
+                    <li>Paragonah - 511</li>
+                    <li>Orderville - 508</li>
+                    <li>Joseph - 495</li>
+                    <li>Cove - 492</li>
+                    <li>Springdale - 489</li>
+                    <li>Wanship and Tropic - 481</li>
+                    <li>Rush Valley - 479</li>
+                    <li>Spanish Valley - 472</li>
+                    <li>Spring Lake - 470</li>
+                    <li>Fort Duchesne - 465</li>
+                    <li>Aneth - 459</li>
+                    <li>Elmo - 455</li>
+                    <li>Navajo Mountain - 453</li>
+                    <li>Neola - 447</li>
+                    <li>Castle Valley - 433</li>
+                    <li>Glendale - 427</li>
+                    <li>Boulder - 400</li>
+                    <li>Alta - 396</li>
+                    <li>Peter - 394</li>
+                    <li>Mayfield - 387</li>
+                    <li>Altamont - 385</li>
+                    <li>Sterling - 377</li>
+                    <li>Wales - 376</li>
+                    <li>Deweyville - 370</li>
+                    <li>Avon - 368</li>
+                    <li>Scipio - 367</li>
+                    <li>Plymouth - 364</li>
+                    <li>Alton - 363</li>
+                    <li>Cannonville - 350</li>
+                    <li>Vernon - 349</li>
+                    <li>Howell - 347</li>
+                    <li>Emery - 344</li>
+                    <li>Garden City - 337</li>
+                    <li>Sigurd - 335</li>
+                    <li>Bluebell - 332</li>
+                    <li>Wallsburg - 330</li>
+                    <li>Newcastle - 326</li>
+                    <li>Montezuma Creek - 324</li>
+                    <li> Elberta and Fayette - 318</li>
+                    <li>Veyo - 314</li>
+                    <li>Whiterocks - 305</li>
+                    <li>Snowville - 304</li>
+                    <li>Kanarraville - 303</li>
+                    <li>Jensen - 299</li>
+                    <li>Leamington - 291</li>
+                    <li>Woodruff - 285</li>
+                    <li>Torrey - 282</li>
+                    <li>Hanksville - 281</li>
+                    <li>Bicknell and Lyman - 277</li>
+                    <li>Manila - 276</li>
+                    <li>Junction - 271</li>
+                    <li>Laketown - 262</li>
+                    <li>Koosharem - 260</li>
+                    <li>La Sal - 255</li>
+                    <li>Summit - 252</li>
+                    <li>Henrieville and Deseret - 249</li>
+                    <li>Garden - 247</li>
+                    <li>Portage and Kingston - 237</li>
+                    <li>New Harmony and Halchita - 222</li>
+                    <li>Brighton - 215</li>
+                    <li>Cedar Fort - 212</li>
+                    <li>Cornish - 211</li>
+                    <li>Rockville - 207</li>
+                    <li>Woodland - 199</li>
+                    <li>Teasdale - 194</li>
+                    <li>Bryce Canyon City - 191</li>
+                    <li>Peoa - 183</li>
+                    <li>Hobble Creek - 174</li>
+                    <li>Meadow - 171</li>
+                    <li>Lapoint - 162</li>
+                    <li>Bluff - 150</li>
+                    <li>Independence - 143</li>
+                    <li>White Mesa - 138</li>
+                    <li>Pine Valley - 122</li>
+                    <li>Cache - 120</li>
+                    <li>Kenilworth - 119</li>
+                    <li>Hatch - 117</li>
+                    <li>Interlaken - 112</li>
+                    <li>Tabiona - 111</li>
+                    <li>Beryl Junction - 106</li>
+                    <li>Randlett - 104</li>
+                    <li>Fremont - 102</li>
+                    <li>Clawson - 101</li>
+                    <li>Thompson Springs - 99</li>
+                    <li>Samak - 98</li>
+                    <li>Antimony - 89</li>
+                    <li>Lynndyl - 84</li>
+                    <li>Fairfield and Flaming Gorge - 81</li>
+                    <li>Dutch John - 67</li>
+                    <li>Ophir - 65</li>
+                    <li>Tselakai Dezza - 51</li>
+                    <li>Scofield - 50</li>
+                    <li>Clear Creek - 49</li>
+                    <li>Echo - 44</li>
+                    <li>Brian Head - 43</li>
+                    <li>Sutherland - 38</li>
+                    <li>Oasis - 29</li>
+                    <li>Sundance - 28</li>
+                    <li>Cedar Highlands - 11</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">DUI and Teenage Drivers</button>
+            <div class="content">
+                <p>Over the past 4 years there have been 107 total crashes with a severity level of a 4 or a 5 that involve Distracted Driving and a Teenage Driver. 13 of these crashes have resulted in a fatality, and the other 94 have had serious injuries.</p>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Crashes Involving a DUI and a Teenage Driver</button>
+            <div class="content">
+                <ul>
+                    <li>Salt Lake County: 370</li>
+                    <li>Utah County: 96</li>
+                    <li>Davis County: 71</li>
+                    <li>Weber County: 80</li>
+                    <li>Washington County: 51</li>
+                    <li>Cache County: 21</li>
+                    <li>Tooele County: 13</li>
+                    <li>Box Elder County: 11</li>
+                    <li>Iron County: 18</li>
+                    <li>Summit County: 9</li>
+                    <li>Uintah County: 16</li>
+                    <li>Wasatch County: 17</li>
+                    <li>Sanpete County: 8</li>
+                    <li>Sevier County: 5</li>
+                    <li>Carbon County: 7</li>
+                    <li>Duchesne County: 6</li>
+                    <li>San Juan County: 3</li>
+                    <li>Millard County: 5</li>
+                    <li>Morgan County: 2</li>
+                    <li>Juab County: 3</li>
+                    <li>Emery County: 3</li>
+                    <li>Grand County: 1</li>
+                    <li>Kane County: 1</li>
+                    <li>Beaver County: 1</li>
+                    <li>Garfield County: 0</li>
+                    <li>Rich County: 0</li>
+                    <li>Wayne County: 1</li>
+                    <li>Piute County: 0</li>
+                    <li>Daggett County: 1</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="form-row">
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total Distracted Driving Crashes per County </button>
+            <div class="content">
+                <ul>
+                    <li>Salt Lake County: 10,091</li>
+                    <li>Utah County: 3,975</li>
+                    <li>Davis County: 2,310</li>
+                    <li>Weber County: 1,551</li>
+                    <li>Washington County: 936</li>
+                    <li>Cache County: 769</li>
+                    <li>Tooele County: 462</li>
+                    <li>Box Elder County: 358</li>
+                    <li>Iron County: 350</li>
+                    <li>Summit County: 275</li>
+                    <li>Uintah County: 163</li>
+                    <li>Wasatch County: 174</li>
+                    <li>Sanpete County: 116</li>
+                    <li>Sevier County: 99</li>
+                    <li>Carbon County: 147</li>
+                    <li>Duchesne County: 114</li>
+                    <li>San Juan County: 54</li>
+                    <li>Millard County: 120</li>
+                    <li>Morgan County: 36</li>
+                    <li>Juab County: 79</li>
+                    <li>Emery County: 74</li>
+                    <li>Grand County: 101</li>
+                    <li>Kane County: 44</li>
+                    <li>Beaver County: 60</li>
+                    <li>Garfield County: 37</li>
+                    <li>Rich County: 28</li>
+                    <li>Wayne County: 26</li>
+                    <li>Piute County: 4</li>
+                    <li>Daggett County: 6</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total DUI Crashes per County </button>
+            <div class="content">
+                <ul>
+                    <li>Salt Lake County: 4,012</li>
+                    <li>Utah County: 1,033</li>
+                    <li>Davis County: 611</li>
+                    <li>Weber County: 727</li>
+                    <li>Washington County: 409</li>
+                    <li>Cache County: 201</li>
+                    <li>Tooele County: 253</li>
+                    <li>Box Elder County: 156</li>
+                    <li>Iron County: 135</li>
+                    <li>Summit County: 206</li>
+                    <li>Uintah County: 95</li>
+                    <li>Wasatch County: 132</li>
+                    <li>Sanpete County: 54</li>
+                    <li>Sevier County: 66</li>
+                    <li>Carbon County: 76</li>
+                    <li>Duchesne County: 62</li>
+                    <li>San Juan County: 48</li>
+                    <li>Millard County: 60</li>
+                    <li>Morgan County: 36</li>
+                    <li>Juab County: 45</li>
+                    <li>Emery County: 47</li>
+                    <li>Grand County: 69</li>
+                    <li>Kane County: 33</li>
+                    <li>Beaver County: 27</li>
+                    <li>Garfield County: 25</li>
+                    <li>Rich County: 12</li>
+                    <li>Wayne County: 5</li>
+                    <li>Piute County: 4</li>
+                    <li>Daggett County: 5</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total Distracted Driving Crashes per City</button>
+            <div class="content">
+                <ul>
+                    Salt Lake County
+                    <li>West Valley City: 970</li>
+                    <li>Sandy: 1099</li>
+                    <li>Murray:647 </li>
+                    <li>Draper: 695</li>
+                    <li>West Jordan: 914 </li>
+                    <li>South Jordan: 651 </li>
+                    <li>Salt Lake City: 1831</li>
+                    <li>Cottonwood Heights: 138 </li>
+                    <li>Midvale: 444 </li>
+                    <li>Taylorsville: 671 </li>
+                    <li>Outside City Limits: 350  </li>
+                    <li>Holladay: 198 </li>
+                    <li>Millcreek: 413  </li>
+                    <li>Riverton: 310 </li>
+                    <li>South Salt Lake: 387 </li>
+                    <li>Herriman: 145 </li>
+                    <li>Bluffdale: 74</li>
+                    <li>Kearns: 65</li>
+                    <li>Magna: 64</li>
+                    <li>Other: 18</li>
+                    <li>North Salt Lake: 2</li>
+                    <li>Brighton: 2</li>
+                    <li>Salt Lake Junction: 1</li>
+                    <li>Copperton: 1</li>
+                    <li>Abraham: 1</li>
+                    &nbsp;
+                    Utah County
+                    <li>Provo: 847</li>
+                    <li>Orem: 847</li>
+                    <li>Lehi: 553</li>
+                    <li>Pleasant Grove: 278</li>
+                    <li>American Fork: 277</li>
+                    <li>Outside City Limits: 134</li>
+                    <li>Lindon: 139</li>
+                    <li>Highland:78</li>
+                    <li>Eagle Mountain: 58</li>
+                    <li>Springville: 205</li>
+                    <li>Spanish Fork: 192</li>
+                    <li>Payson: 92</li>
+                    <li>Santaquin: 46</li>
+                    <li>Alpine: 25</li>
+                    <li>Mapleton: 16</li>
+                    <li>Vineyard: 13</li>
+                    <li>Cedar Hills: 9</li>
+                    <li>Elk Ridge: 7</li>
+                    <li>Cedar Fort: 4</li>
+                    <li>Benjamin: 1</li>
+                    <li>Other: 17</li>
+                    <li>Elberta: 2</li>
+                    <li>Spring Lake: 2</li>
+                    <li>Genola: 1</li>
+                    <li>Sundance: 1</li>
+                    &nbsp;
+                    Davis County
+                    <li>Layton: 659</li>
+                    <li>Farmington: 264</li>
+                    <li>Clearfield: 226</li>
+                    <li>Bountiful: 216</li>
+                    <li>Woods Cross: 40</li>
+                    <li>Sunset: 63</li>
+                    <li>West Bountiful: 61</li>
+                    <li>Syracuse: 61</li>
+                    <li>Clinton: 101</li>
+                    <li>Centerville: 153</li>
+                    <li>Fruit Heights: 29</li>
+                    <li>Kaysville: 178</li>
+                    <li>North Salt Lake: 174</li>
+                    <li>Outside City Limits: 19</li>
+                    <li>West Point: 42</li>
+                    <li>South Weber: 24</li>
+                    &nbsp;
+                    Weber County
+                    <li>Ogden: 574</li>
+                    <li>Roy: 276</li>
+                    <li>Riverdale: 179</li>
+                    <li>Farr West: 70</li>
+                    <li>South Ogden: 64</li>
+                    <li>Uintah: 16</li>
+                    <li>Outside City Limits: 72</li>
+                    <li>West Haven: 54</li>
+                    <li>Hooper: 15</li>
+                    <li>North Ogden: 51</li>
+                    <li>Harrisville: 37</li>
+                    <li>Marriott-Slaterville: 60</li>
+                    <li>Pleasant View: 38</li>
+                    <li>Washington Terrace: 25</li>
+                    <li>Plain City: 20</li>
+                    &nbsp;
+                    Washington County
+                    <li>St George – 600</li>
+                    <li>Washington – 116</li>
+                    <li>Hurricane –116</li>
+                    <li>Santa Clara – 26</li>
+                    <li>La Verkin – 24</li>
+                    <li>Toquerville – 13</li>
+                    <li>Outside City Limits –41</li>
+                    &nbsp;
+                    Cache County
+                    <li>Logan – 466</li>
+                    <li>North Logan – 69</li>
+                    <li>Outside City Limits – 66</li>
+                    <li>Providence – 20</li>
+                    <li>Millville – 11</li>
+                    <li>Smithfield – 33</li>
+                    <li>Hyrum – 26</li>
+                    <li>Wellsville – 23</li>
+                    <li>Nibley – 19</li>
+                    <li>Hyde Park – 28</li>
+                    &nbsp;
+                    Tooele County
+                    <li>Tooele – 178</li>
+                    <li>Outside City Limits – 174</li>
+                    <li>Grantsville – 45</li>
+                    <li>Stansbury Park – 22</li>
+                    <li>Other – 31</li>
+                    <li>Lake Point – 12</li>
+                    &nbsp;
+                    Box Elder County
+                    <li>Brigham City –107</li>
+                    <li>Outside City Limits – 99</li>
+                    <li>Tremonton – 32</li>
+                    <li>Honeyville – 22</li>
+                    <li>Perry –11</li>
+                    <li>Willard – 21</li>
+                    <li>Corrinne –11</li>
+                    <li>Garland –17</li>
+                    <li>Elwood –17</li>
+                    <li>Other – 21</li>
+                    &nbsp;
+                    Iron County
+                    <li>Cedar City – 230</li>
+                    <li>Outside City Limits – 72</li>
+                    <li>Other -- 24</li>
+                    <li>Enoch – 13</li>
+                    <li>Parowan – 11</li>
+                    &nbsp;
+                    Summit County
+                    <li>Outside City Limits -- 159</li>
+                    <li>Park City – 75</li>
+                    <li>Other – 41 </li>
+                    &nbsp;
+                    Uintah County
+                    <li>Vernal – 62</li>
+                    <li>Outside City Limits – 60</li>
+                    <li>Ballard – 15</li>
+                    <li>Other – 14</li>
+                    <li>Naples – 3</li>
+                    <li>Lapoint – 3</li>
+                    <li>Maeser – 3</li>
+                    <li>Fort Duchesne – 2</li>
+                    <li>Jensen –1</li>
+                    &nbsp;
+                    Wasatch County
+                    <li>Outside City Limits – 66</li>
+                    <li>Heber City – 47</li>
+                    <li>Other – 26</li>
+                    <li>Midway – 19</li>
+                    <li>Charleston – 6</li>
+                    <li>Hideout – 5</li>
+                    <li>Daniel – 2</li>
+                    <li>Jordanelle – 1</li>
+                    <li>Center Creek – 1</li>
+                    <li>Wallsburg – 1</li>
+                    &nbsp;
+                    Sanpete County
+                    <li>Outside City Limits – 46</li>
+                    <li>Ephraim – 33</li>
+                    <li>Manti – 10</li>
+                    <li>Other – 10</li>
+                    <li>Gunnison – 5</li>
+                    <li>Moroni –1</li>
+                    <li>Centerfield – 3</li>
+                    <li>Fairview – 2</li>
+                    <li>Spring City – 1</li>
+                    <li>Fountain Green – 2</li>
+                    <li>Mount Pleasant – 2</li>
+                    <li>Indianola – 1</li>
+                    &nbsp;
+                    Sevier County
+                    <li>Outside City Limits – 40</li>
+                    <li>Richfield – 27</li>
+                    <li>Other – 12</li>
+                    <li>Sigurd – 3</li>
+                    <li>Annabella – 1</li>
+                    <li>Elsinore –2</li>
+                    <li>Monroe –4</li>
+                    <li>Salina – 5 </li>
+                    <li>Redmond – 1</li>
+                    <li>Aurora – 1</li>
+                    <li>Joseph – 1</li>
+                    <li>Koosharem –1</li>
+                    <li>Central Valley – 1</li>
+                    &nbsp;
+                    Carbon County
+                    <li>Price – 82</li>
+                    <li>Outside City Limits – 35</li>
+                    <li>Other – 19</li>
+                    <li>Wellington –4</li>
+                    <li>Helper – 6</li>
+                    <li>Spring Glen – 1</li>
+                    &nbsp;
+                    Duchesne County
+                    <li>Outside City Limits – 48</li>
+                    <li>Roosevelt – 37</li>
+                    <li>Other – 17</li>
+                    <li>Duchesne –6</li>
+                    <li>Myton –4</li>
+                    <li>Bridgeland – 1</li>
+                    <li>Cedarview –1</li>
+                    &nbsp;
+                    San Juan County
+                    <li>Outside City Limits – 31</li>
+                    <li>Other –14</li>
+                    <li>Monticello –8</li>
+                    <li>Blanding –1</li>
+                    &nbsp;
+                    Millard County
+                    <li>Outside City Limits – 71</li>
+                    <li>Other – 23</li>
+                    <li>Delta – 13</li>
+                    <li>Fillmore – 8</li>
+                    <li>Hinckley – 2</li>
+                    <li>Scipio – 2</li>
+                    <li>Oak City – 1</li>
+                    &nbsp;
+                    Morgan County
+                    <li>Outside City Limits – 26</li>
+                    <li>Morgan – 6</li>
+                    <li>Mountain Green –2</li>
+                    <li>Other – 1</li>
+                    <li>Morgan City – 1</li>
+                    &nbsp;
+                    Juab County
+                    <li>Outside City Limits – 32</li>
+                    <li>Other – 24</li>
+                    <li>Nephi – 18</li>
+                    <li>Mona – 5</li>
+                    &nbsp;
+                    Emery County
+                    <li>Outside City Limits – 38</li>
+                    <li>Other – 11</li>
+                    <li>Castle Dale – 8</li>
+                    <li>Huntington – 6</li>
+                    <li>Green River – 5</li>
+                    <li>Ferron – 3</li>
+                    <li>Cleveland – 2</li>
+                    <li>Clawson – 1</li>
+                    &nbsp;
+                    Grand County
+                    <li>Moab – 53</li>
+                    <li>Outside City Limits – 37</li>
+                    <li>Other – 11</li>
+                    &nbsp;
+                    Kane County
+                    <li>Outside City Limits – 23</li>
+                    <li>Kanab – 11</li>
+                    <li>Other –4</li>
+                    <li>Orderville –3</li>
+                    <li>Glendale –2</li>
+                    <li>Big Water – 1</li>
+                    &nbsp;
+                    Beaver County
+                    <li>Outside City Limits –36</li>
+                    <li>Beaver –12</li>
+                    <li>Other – 9</li>
+                    <li>Minersville -1</li>
+                    <li>Milford –1</li>
+                    <li>Greenville –1</li>
+                    &nbsp;
+                    Garfield County
+                    <li>Outside City Limits –21</li>
+                    <li>Other – 8</li>
+                    <li>Tropic – 2</li>
+                    <li>Escalante – 2</li>
+                    <li>Boulder – 1</li>
+                    <li>Cannonville – 1</li>
+                    <li>Panguitch –1</li>
+                    <li>Bryce Canyon City – 1</li>
+                    &nbsp;
+                    Wayne County
+                    <li>Outside City Limits –21</li>
+                    <li>Bicknell – 2</li>
+                    <li>Torrey – 2</li>
+                    <li>Loa – 1</li>
+                    <li>Lyman –1</li>
+                    <li>Hanksville – 1</li>
+                    &nbsp;
+                    Rich County
+                    <li>Outside City Limits –14</li>
+                    <li>Garden City – 6</li>
+                    <li>Other – 4</li>
+                    <li>Laketown –1 </li>
+                    <li>Randolph –1</li>
+                    &nbsp;
+                    Piute County
+                    <li>Total -- 4</li>
+                    <li>Other – 2</li>
+                    <li>Junction – 1</li>
+                    <li>Outside City Limits – 1</li>
+                    &nbsp;
+                    Daggett County
+                    <li>Outside City Limits – 5</li>
+                    <li>Other – 1</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Drowsy Driving by Time of Day</button>
+            <div class="content">
+                <ul>
+                    <li>12:00AM: 222</li>
+                    <li>1:00AM: 203</li>
+                    <li>2:00AM: 200</li>
+                    <li>3:00AM: 226</li>
+                    <li>4:00AM: 221</li>
+                    <li>5:00AM: 250</li>
+                    <li>6:00AM: 341</li>
+                    <li>7:00AM: 385</li>
+                    <li>8:00AM: 309</li>
+                    <li>9:00AM: 167</li>
+                    <li>10:00AM: 121</li>
+                    <li>11:00AM: 117</li>
+                    <li>12:00PM: 141</li>
+                    <li>1:00PM: 200</li>
+                    <li>2:00PM: 239</li>
+                    <li>3:00PM: 278</li>
+                    <li>4:00PM: 327</li>
+                    <li>5:00PM: 297</li>
+                    <li>6:00PM: 194</li>
+                    <li>7:00PM: 104</li>
+                    <li>8:00PM: 79</li>
+                    <li>9:00PM: 99</li>
+                    <li>10:00PM: 110</li>
+                    <li>11:00PM: 156</li>
+
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <hr />
+
+    <div class="form-row">
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total Distracted Driving </button>
+            <div class="content">
+                <p>22744</p>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total Distracted Driving per Year</button>
+            <div class="content">
+                <ul>
+                    <li>2016: 5,831</li>
+                    <li>2017: 5,825</li>
+                    <li>2018: 5,772</li>
+                    <li>2019: 5,316</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total DUI</button>
+            <div class="content">
+                <p>8,645</p>
+            </div>
+        </div>
+
+
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Total DUI per Year</button>
+            <div class="content">
+                <ul>
+                    <li>2016: 2,226</li>
+                    <li>2017: 2,136</li>
+                    <li>2018: 2,147</li>
+                    <li>2019: 2,136</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <hr />
+
+    <div class="form-row">
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Crashes per Month</button>
+            <div class="content">
+                <ul>
+                    <li>January: 23,203</li>
+                    <li>February: 19,951</li>
+                    <li>March: 19,562</li>
+                    <li>April: 18,320</li>
+                    <li>May: 20,427</li>
+                    <li>June: 19,490</li>
+                    <li>July: 19,432</li>
+                    <li>August: 21,373</li>
+                    <li>September: 21,593</li>
+                    <li>October: 22,019</li>
+                    <li>November: 23,099</li>
+                    <li>December: 24,029</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">Distracted Driving by Month</button>
+            <div class="content">
+                <ul>
+                    <li>January: 1,614</li>
+                    <li>February: 1,563</li>
+                    <li>March: 1,786</li>
+                    <li>April: 1,765</li>
+                    <li>May: 2,064</li>
+                    <li>June: 1,996</li>
+                    <li>July: 1,902</li>
+                    <li>August: 2,200</li>
+                    <li>September: 2,173</li>
+                    <li>October: 2,056</li>
+                    <li>November: 1,860</li>
+                    <li>December: 1,765</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <button type="button" class="collapsible">DUI by Month</button>
+            <div class="content">
+                <ul>
+                    <li>January: 717</li>
+                    <li>February: 626</li>
+                    <li>March: 713</li>
+                    <li>April: 718</li>
+                    <li>May: 663</li>
+                    <li>June: 734</li>
+                    <li>July: 743</li>
+                    <li>August: 756</li>
+                    <li>September: 761</li>
+                    <li>October: 724</li>
+                    <li>November: 728</li>
+                    <li>December: 762</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="col-3">
+            <button type="button" class="collapsible"> Total Crashes per month in dark conditions</button>
+            <div class="content">
+                <ul>
+                    <li>January: 8,637</li>
+                    <li>February: 6,158</li>
+                    <li>March: 4,494</li>
+                    <li>April: 3,063</li>
+                    <li>May: 2,837</li>
+                    <li>June: 2,743</li>
+                    <li>July: 2,962</li>
+                    <li>August: 3,278</li>
+                    <li>September: 4,145</li>
+                    <li>October: 5,687</li>
+                    <li>November: 8,965</li>
+                    <li>December: 10,188</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>

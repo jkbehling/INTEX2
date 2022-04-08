@@ -25,13 +25,13 @@ namespace INTEX2.Models
 
         public void CreateCrash(Crash c)
         {
-            context.Add(c);
+            context.crashdata.Add(c);
             context.SaveChanges();
         }
 
         public void UpdateCrash(Crash c)
         {
-            context.Update(c);
+            context.crashdata.Update(c);
             context.SaveChanges();
         }
 

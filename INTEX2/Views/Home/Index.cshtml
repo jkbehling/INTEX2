@@ -3,31 +3,50 @@
 }
 @model List<Crash>
 
-<div class="text-center">
-    <p style="text-align:center;">
 
-        <img class="w-50" src="~/intexindeximage.jpg" />
-    </p>
-</div>
+    
+        <div class="text-center mt-3">
+            <div class="card">
+                <div class="card-header">
 
-<br /><br />
+                </div>
+                <div class="card-body">
+                    <img class="w-50" src="~/intexindeximage.jpg" />
+                </div>
+
+            </div>
+        </div>
+   
+
+  
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Utah Car Crashes</h5>
+            </div>
+            <div class="card-body">
+                <p>
+                    Throughout the state of Utah, there is a seriously problem with the amount of motor vehicle collisions. Distracted driving continues to cause deaths
+                    and tear apart families across the state. Lawmakers are making many efforts to find ways to fix this problem. They are seeking outside help, collecting
+                    data, and even targeting social trends with funny signs on the freeways like the one above.
+                </p>
+                <p>
+                    The purpose of this site is to make Utahns aware of what is going on. On the crash details page, there are data to show the many lives affected in the
+                    last few years by distracted or reckless driving. With filter capabilities, you can find specific accidents, or view accidents of varying categories.
+                </p>
+                <p>
+                    Lastly, the mission of this website is to show summaries and predictions with the purpose of helping regulators make better decisions. We hope as you
+                    view this data, you too find it insightful.
+                </p>
+            </div>
+        </div>
+    
+
+
 
       <div>
-          <p>
-              Throughout the state of Utah, there is a seriously problem with the amount of motor vehicle collisions. Distracted driving continues to cause deaths
-              and tear apart families across the state. Lawmakers are making many efforts to find ways to fix this problem. They are seeking outside help, collecting
-              data, and even targeting social trends with funny signs on the freeways like the one above.
-          </p>
-          <p>
-              The purpose of this site is to make Utahns aware of what is going on. On the crash details page, there are data to show the many lives affected in the
-              last few years by distracted or reckless driving. With filter capabilities, you can find specific accidents, or view accidents of varying categories.
-          </p>
-          <p>
-              Lastly, the mission of this website is to show summaries and predictions with the purpose of helping regulators make better decisions. We hope as you
-              view this data, you too find it insightful.
-          </p>
+          
 
-          <br /><br />
+         
 
           <div>
               <a class="btn btn-primary" asp-controller="Home" asp-action="Summary">View Crash Details</a>
